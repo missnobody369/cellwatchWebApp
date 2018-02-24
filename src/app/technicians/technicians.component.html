@@ -1,0 +1,35 @@
+<p><a routerLink="/technicians/new" class="btn btn-primary">Add Technician</a></p>
+
+<p>
+    <!-- search technicians name -->
+    <input 
+    #query
+    (keyup)="filter(query.value)"
+    type="text" class="form-control" placeholder="Search Name">
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Expiration Date</th>
+            <th>Phone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of filteredTechnicians">        
+                <a [routerLink]="['/technicians-tasks', t.$key]">
+            <td>{{ t.name }}</td>
+        </a>
+        <td>{{ t.email }}</td>
+        <td>{{ t.expirationDate }}</td>
+        <td>{{ t.phone }}</td>
+        <td>
+            <a [routerLink]="['/technicians', t.$key]">Edit</a>
+            <!-- <a [routerLink]="['/technicians-tasks', t.$key]">Tasks</a> -->
+        </td>
+        </tr>
+    </tbody>
+</table>

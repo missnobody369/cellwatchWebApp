@@ -1,0 +1,60 @@
+<div class="col-md-4">
+    <div class="card" style="width: 30rem;">
+        <img class="card-img-top">
+          <div class="card-body">
+            <h4>Technicians</h4>
+            <p class="card-text">Name: {{ technicians.name }}</p>
+            <p class="card-text">Email: {{ technicians.email }}</p>
+            <p class="card-text">Expiration: {{ technicians.expirationDate }}</p>
+            <p class="card-text">Phone: {{ technicians.phone }}</p>
+            <p class="card-text">Hobby: {{ technicians.hobby }}</p>
+            <p class="card-text">Bio: {{ technicians.bio }}</p>
+          </div>
+        </div>
+</div>
+
+<br>
+
+<div class="col-md-8">
+      <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <h4>List of Tasks</h4>
+          <p class="card-text">Tasks: {{tasks.taskName}}</p>
+          <p class="card-text">Address: {{tasks.taskAddress}}</p>
+          <p class="card-text">Suburb: {{tasks.taskSuburb}}</p>
+          <p class="card-text">Type: {{tasks.taskTypes}}</p>
+          <p class="card-text">Date: {{tasks.taskDate}}</p>
+          <p class="card-text">Class: {{tasks.taskClass}}</p>
+          <p class="card-text">Description: {{tasks.taskDescription}}</p>
+          <p class="card-text"></p>
+        </div>
+</div>
+
+
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Task ID</th>
+      <th>Task Name</th>
+      <th>Address</th>
+      <th>Suburb</th>
+      <th>Class</th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+        <td>{{tasks.eachUserID}}</td>
+        <td>{{tasks.taskName}}</td>
+        <td>{{tasks.taskAddress}}</td>
+        <td>{{tasks.taskSuburb}}</td>
+        <td>{{tasks.taskTypes}}</td>
+        <td>{{tasks.taskDate}}</td>
+        <td>{{tasks.taskClass}}</td>
+        <td>{{tasks.taskDescription}}</td>
+      </tr>
+    </tbody>
+</table> -->

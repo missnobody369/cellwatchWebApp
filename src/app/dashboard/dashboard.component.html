@@ -1,0 +1,63 @@
+<section id="details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card text-center bg-primary text-white mb-3">
+            <div class="card-body">
+              <h3>Technicians</h3>
+              <h1 class="display-4">
+               <i class="fa fa-pencil"></i>
+             </h1>
+             <a routerLink="/technicians" class="btn btn-outline-dark text-white btn-sm">View</a>
+            </div>
+          </div>
+
+          <div class="card text-center bg-success text-white mb-3">
+           <div class="card-body">
+             <h3>Maps</h3>
+             <h1 class="display-4">
+               <i class="fa fa-folder-open"></i>
+             </h1>
+             <a routerLink="/maps" class="btn btn-outline-dark text-white btn-sm">View</a>
+           </div>
+          </div>
+
+          <div class="card text-center bg-secondary text-white mb-3">
+           <div class="card-body">
+             <h3>Tasks</h3>
+             <h1 class="display-4">
+               <i class="fa fa-users"></i>
+             </h1>
+             <a routerLink="/task" class="btn btn-outline-dark text-white btn-sm">View</a>
+           </div>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <section id="techList">
+            <div class="container">
+              <h4>Techicians List</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Expiration Date</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of technicians$ | async">
+                        <td>{{ t.name }}</td>
+                        <td>{{ t.email }}</td>
+                        <td>{{ t.expirationDate }}</td>
+                        <td>{{ t.phone }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+ </section>
