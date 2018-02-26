@@ -29,6 +29,7 @@ import { TaskComponent } from './task/task.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { TechNamesService } from './services/tech-names.service';
 import { TaskService } from './services/task.service';
+import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks.component';
 
 
 
@@ -43,6 +44,7 @@ import { TaskService } from './services/task.service';
     TechniciansFormComponent,
     TaskComponent,
     TaskFormComponent,
+    TechniciansTasksComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,39 +59,50 @@ import { TaskService } from './services/task.service';
     }),
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'login', 
-        component: LoginComponent
-      },
+      { path: 'login', component: LoginComponent},
 
-      { path: 'dashboard', 
-      component: DashboardComponent, 
+      { path: 'dashboard',
+      component: DashboardComponent,
       canActivate: [AuthGuardService]
       },
       { path: 'maps', 
       component: MapsComponent, 
       canActivate: [AuthGuardService]
       },
+      { path: 'technicians-tasks',
+      component: TechniciansTasksComponent,
+      canActivate: [AuthGuardService]
+      },
+      { path: 'technicians-tasks/:id',
+      component: TechniciansTasksComponent,
+      canActivate: [AuthGuardService]
+      },
 
-      { path: 'task', 
-      component: TaskComponent, 
+      // technicians tasks
+      { path: 'task',
+      component: TaskComponent,
       canActivate: [AuthGuardService]
       },
-      { path: 'task/new', 
-      component: TaskFormComponent, 
+      { path: 'task/new',
+      component: TaskFormComponent,
       canActivate: [AuthGuardService]
       },
-      
+      { path: 'task/:id',
+      component: TaskFormComponent,
+      canActivate: [AuthGuardService]
+      },
+
       //technicians
-      { path: 'technicians', 
-        component: TechniciansComponent, 
+      { path: 'technicians',
+        component: TechniciansComponent,
         canActivate: [AuthGuardService]
       },
-      { path: 'technicians/new', 
-        component: TechniciansFormComponent, 
+      { path: 'technicians/new',
+        component: TechniciansFormComponent,
         canActivate: [AuthGuardService]
       },
-      { path: 'technicians/:id', 
-        component: TechniciansFormComponent, 
+      { path: 'technicians/:id',
+        component: TechniciansFormComponent,
         canActivate: [AuthGuardService]
       },
       { path: '', 

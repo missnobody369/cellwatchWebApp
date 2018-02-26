@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { AngularFireDatabase } from 'angularfire2/database';
+
 
 @Injectable()
 export class TaskService {
+  taskTemplates$;
 
-
-  constructor(private db: AngularFireDatabase) {  }
+  constructor(private db: AngularFireDatabase,private route: ActivatedRoute) {  }
 
   //creating new tasks and adding to db
   create(tasks){
@@ -17,9 +19,22 @@ export class TaskService {
   }
 
   getAllTask(){
-    return this.db.list('/tasks');
+    return this.db.list('/tasks/');
     //return this.db.database.ref('/users/').child("").child('/tasks/');
     //console.log();
   }
 
+  getTaskById(userId){
+    return this.db.list('/tasks', {
+      query: {
+        orderByChild: 'eachUserID',
+        equalTo: userId
+      }
+    });
+  }
+
+  getTaskInfo(tasksId){
+    return this.db.object('/tasks/' + tasksId);
+    
+  }
 }

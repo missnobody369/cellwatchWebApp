@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TechNamesService } from '../services/tech-names.service';
 import { TaskService } from '../services/task.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-task-form',
@@ -12,16 +12,25 @@ export class TaskFormComponent implements OnInit {
 
   //list of technames
   techNames$;
+  //list of tasks
+  tasks = {};
+  taskId;
 
   //get data of technames
   constructor(
     private techNamesService: TechNamesService,
     private taskService: TaskService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
 
     this.techNames$ = techNamesService.getTechNames();
 
+    //get task details and insert inside form&card
+    let taskId = this.route.snapshot.paramMap.get('id');
+    if (taskId) this.taskService.getTaskInfo(taskId).take(1).subscribe( b => this.tasks = b);
+    
+    console.log('M - task ID:   ' + taskId);
   }
 
   //add task information from task-form to db
@@ -32,8 +41,6 @@ export class TaskFormComponent implements OnInit {
     this.router.navigate(['/task']);
   }
 
-  
-  
   ngOnInit() {
   }
 

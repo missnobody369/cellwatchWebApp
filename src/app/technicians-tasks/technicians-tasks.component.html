@@ -1,0 +1,44 @@
+<div class="col-md-4">
+    <div class="card" style="width: 30rem;">
+        <img class="card-img-top">
+          <div class="card-body">
+            <h4>Technicians</h4>
+            <p class="card-text">Name: {{ technicians.name }}</p>
+            <p class="card-text">Email: {{ technicians.email }}</p>
+            <p class="card-text">Expiration: {{ technicians.expirationDate }}</p>
+            <p class="card-text">Phone: {{ technicians.phone }}</p>
+            <p class="card-text">Hobby: {{ technicians.hobby }}</p>
+            <p class="card-text">Bio: {{ technicians.bio }}</p>
+          </div>
+        </div>
+</div>
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Task ID</th>
+      <th>Task Name</th>
+      <th>Address</th>
+      <th>Suburb</th>
+      <th>Class</th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr *ngFor="let taskInfo of tasks$ | async">
+        <td>{{taskInfo.eachUserID}}</td>
+        <td>{{taskInfo.taskName}}</td>
+        <td>{{taskInfo.taskAddress}}</td>
+        <td>{{taskInfo.taskSuburb}}</td>
+        <td>{{taskInfo.taskTypes}}</td>
+        <td>{{taskInfo.taskDate}}</td>
+        <td>{{taskInfo.taskClass}}</td>
+        <td>{{taskInfo.taskDescription}}</td>
+      </tr>
+    </tbody>
+</table>

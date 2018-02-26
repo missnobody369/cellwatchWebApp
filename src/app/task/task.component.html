@@ -2,6 +2,15 @@
   <a routerLink="/task/new" class="btn btn-primary">Add Tasks</a>
 </p>
 
+<!-- Search -->
+<p>
+  <!-- Handle key of event -->
+  <input 
+  #queryTasks
+  (keyup)="filter(queryTasks.value)"
+  type="text" class="form-control" placeholder="Search Name...">
+</p>
+
 <table class="table">
   <thead>
     <tr>
@@ -18,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let b of tasks$ | async">
+    <tr *ngFor="let b of filteredTasks">
       <td>{{ b.eachUserID }}</td>
       <td>{{ b.taskTechnicianName}}</td>
       <td>{{ b.taskName }}</td>
@@ -29,7 +38,7 @@
       <td>{{ b.taskDate }}</td>
       <td>{{ b.taskDescription }}</td>
       <td>
-        <a [routerLink]="['/tasks', b.$key]">View</a>
+        <a [routerLink]="['/task', b.$key]">View</a>
       </td>
     </tr>
   </tbody>
