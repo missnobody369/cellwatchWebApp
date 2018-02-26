@@ -1,11 +1,6 @@
 export interface Tasks{
-    taskTechnicianName: String;
-    eachUserID: String;
-    taskName: String;
-    taskAddress: Date;
-    taskSuburb: String;
-    taskTypes: String;
-    taskDate: String;
+    taskTechName: String;
+    taskAdd: String;
+    taskDate: Date;
     taskClass: String;
-    taskDescription: String;
 }

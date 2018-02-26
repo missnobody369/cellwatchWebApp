@@ -16,20 +16,10 @@ export class TaskService {
     // return this.db.database.ref('/users/' + a.id  ).child("tasks").push(tasks);
   }
 
-  getAllTask(uid){
-    const userQuery$=  this.db.list('/tasks/',{query:{
-      orderByChild:'taskTechnicianName',
-      equalTo:uid
-    }});
-    userQuery$.subscribe(tasks => console.log(tasks));
+  getAllTask(){
+    return this.db.list('/tasks');
     //return this.db.database.ref('/users/').child("").child('/tasks/');
     //console.log();
-  }
-  //getting each task information
-  
-  getTaskInfo(uId){
-  // console.log('M - task ID:   ' + tasksId);
-    return this.db.object('/tasks/');
   }
 
 }

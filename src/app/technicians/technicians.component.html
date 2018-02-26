@@ -13,22 +13,20 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
+            <!-- <th>Expiration</th> -->
             <th>Expiration Date</th>
             <th>Phone</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let t of filteredTechnicians">        
-                <a [routerLink]="['/technicians-tasks', t.$key]">
-            <td>{{ t.name }}</td>
-        </a>
+        <tr *ngFor="let t of filteredTechnicians">
+        <td>{{ t.name }}</td>
         <td>{{ t.email }}</td>
         <td>{{ t.expirationDate }}</td>
         <td>{{ t.phone }}</td>
         <td>
             <a [routerLink]="['/technicians', t.$key]">Edit</a>
-            <!-- <a [routerLink]="['/technicians-tasks', t.$key]">Tasks</a> -->
         </td>
         </tr>
     </tbody>
