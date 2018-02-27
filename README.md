@@ -3,8 +3,11 @@ Web site developed as part of Edenz Capstone project
 
 
 ##################### The Team ###################
-###          Michel Koti - Project Manager     ###
-###           Mae Malubay - Web Developer      ###
+#          Michel Koti - Project Manager     ###
+##           Mae Malubay - Web Developer      ###
 ###         Nidennis Be - Mobile Developer     ###
-###      Jessie Balbuena - DBA/Documentation   ###
+####      Jessie Balbuena - DBA/Documentation   ###
+##### teste
+###### teste 2
+#######
 ##################################################
