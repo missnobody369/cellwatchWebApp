@@ -13,7 +13,7 @@ import { PromiseObservable } from "rxjs/observable/PromiseObservable";
   styleUrls: ["./technicians-tasks.component.css"]
 })
 export class TechniciansTasksComponent implements OnInit {
-  technicians = {};
+  technicians;
   tasks = {};
   tasks$;
   filteredTasks: any[];

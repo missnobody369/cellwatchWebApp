@@ -12,7 +12,7 @@ import { TechniciansService } from '../services/technicians.service';
 })
 export class TechniciansFormComponent{
 
-  technicians = {};
+  technicians;
   id;
 
   constructor(
