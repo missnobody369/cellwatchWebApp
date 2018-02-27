@@ -1,6 +1,6 @@
 //JB 22-02-2018 Added name and address info to the markers
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GeoService } from './geo.service';
+import { GeoService } from '../services/geo.service';
 import { ElementRef, NgZone, ViewChild } from '@angular/core';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
@@ -40,23 +40,23 @@ export class MapsComponent implements OnInit {
     this.zoom = 10;
     
 
-    //create search FormControl
+    //FormControl creation
     this.searchControl = new FormControl();
 
-     //set current position
+     //setting current position
      this.markers$ = this.geo.getLocations();
 
-    //Autocomplete when loading the places
+    //Autocomplete when typing the name of the technician
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["name"]
       });
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
-          //get the place result
+          //getting the result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-          //verify result
+          //to verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }

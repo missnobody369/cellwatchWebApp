@@ -15,6 +15,13 @@ export class TaskFormComponent implements OnInit {
   //list of tasks
   tasks;
   taskId;
+  //dropdown technicians name
+  eachUserID: string = '';
+
+  selectedChangeHandler (event: any) {
+    this.eachUserID = event.target.value;
+    
+  }
 
   //get data of technames
   constructor(
@@ -29,9 +36,9 @@ export class TaskFormComponent implements OnInit {
     //get task details and insert inside form&card
     let taskId = this.route.snapshot.paramMap.get('id');
     if (taskId) this.taskService.getTaskInfo(taskId).take(1).subscribe( b => this.tasks = b);
-    
-    console.log('M - task ID:   ' + taskId);
+    //console.log('M - task ID:   ' + taskId);
   }
+  
 
   //add task information from task-form to db
   add(tasks){

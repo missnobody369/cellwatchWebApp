@@ -39,6 +39,7 @@ export class TechniciansFormComponent{
 
   //deleting technicians in the firebase
   delete(){
+    
     if (!confirm('Are you really sure you want to delete this technician?')) return;
 
     this.techniciansService.delete(this.id);

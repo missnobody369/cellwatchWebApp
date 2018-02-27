@@ -10,9 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 ///JB added 20-02-2018
 // AGM libraries
-import { GeoService } from './maps/geo.service';
+import { GeoService } from './services/geo.service';
 import { MapsComponent } from './maps/maps.component';
 import { AgmCoreModule } from '@agm/core';
+
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -53,6 +54,8 @@ import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+
+    //JB 27-02-2018 Modified API Key
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC2nZKKz6bdaYuVUP9VcI1MoNxvzUvFvxY',
       libraries: ["places"]
@@ -65,6 +68,7 @@ import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks
       component: DashboardComponent,
       canActivate: [AuthGuardService]
       },
+      //JB added maps component 
       { path: 'maps', 
       component: MapsComponent, 
       canActivate: [AuthGuardService]

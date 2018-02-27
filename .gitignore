@@ -34,6 +34,9 @@ npm-debug.log
 testem.log
 /typings
 
+# Environment - Databases string connections
+/src/environments
+
 # e2e
 /e2e/*.js
 /e2e/*.map
