@@ -35,7 +35,7 @@ testem.log
 /typings
 
 # Environment - Databases string connections
-/src/environments
+#/src/environments
 
 # e2e
 /e2e/*.js
