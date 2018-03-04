@@ -38,7 +38,7 @@
       <!-- <td>{{ b.taskSuburb }}</td> -->
       <td>{{ b.taskClass }}</td>
       <td>{{ b.taskType }}</td>
-      <td>{{ b.taskDate | date:"MM/dd/yy hh:mm a" }}</td>
+      <td>{{ b.taskDate | date:"dd/MM/yy hh:mm a" }}</td>
       <!-- <td>{{ b.taskDescription }}</td> -->
       <td>
         <a [routerLink]="['/task', b.$key]">View</a>

@@ -3,7 +3,7 @@
       <button class="btn btn-warning" [routerLink]="['/technicians']">Back</button>
     <form #f="ngForm" (ngSubmit)="save(f.value)">
   <div class="form-group">
-    <label for="techName">Name</label>
+    <label for="name">Name</label>
     <input #name="ngModel" [(ngModel)]="technicians.name" name="name" input="name" type="text" class="form-control" required>
     <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
       Name is required.
@@ -61,9 +61,9 @@
           <img class="card-img-top">
             <div class="card-body">
               <h4>Technicians</h4>
-              <h5 class="card-title">Name: {{ technicians.techName }}</h5>
+              <h5 class="card-title">Name: {{ technicians.name }}</h5>
               <p class="card-text">Email: {{ technicians.email }}</p>
-              <p class="card-text">Expiration: {{ technicians.expirationDate | date:"MM/dd/yy hh:mm a"}}</p>
+              <p class="card-text">Expiration: {{ technicians.expirationDate | date:"dd/MM/yy hh:mm a"}}</p>
               <p class="card-text">Phone: {{ technicians.phone }}</p>
               <p class="card-text">Hobby: {{ technicians.hobby }}</p>
               <p class="card-text">Bio: {{ technicians.bio }}</p>
