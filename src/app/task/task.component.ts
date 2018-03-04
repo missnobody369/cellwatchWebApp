@@ -26,7 +26,7 @@ export class TaskComponent implements OnInit, OnDestroy {
     this.filteredTasks =(queryTasks) ?
       // this.tasks.filter(s => s.taskTechicianName.toLowerCase().includes(queryTasks.toLowerCase())) : 
       // this.tasks;
-      this.tasks.filter(s => s.taskTechnicianName.toLowerCase().includes(queryTasks.toLowerCase())) : 
+      this.tasks.filter(s => s.taskName.toLowerCase().includes(queryTasks.toLowerCase())) : 
       this.tasks;
   }
   

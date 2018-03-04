@@ -18,7 +18,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Task ID</th>
+      <!-- <th>Task ID</th> -->
       <th>Task Name</th>
       <th>Address</th>
       <th>Suburb</th>
@@ -31,13 +31,13 @@
   </thead>
     <tbody>
       <tr *ngFor="let taskInfo of tasks$ | async">
-        <td>{{taskInfo.eachUserID}}</td>
+        <!-- <td>{{taskInfo.eachUserID}}</td> -->
         <td>{{taskInfo.taskName}}</td>
         <td>{{taskInfo.taskAddress}}</td>
         <td>{{taskInfo.taskSuburb}}</td>
-        <td>{{taskInfo.taskTypes}}</td>
-        <td>{{taskInfo.taskDate}}</td>
         <td>{{taskInfo.taskClass}}</td>
+        <td>{{taskInfo.taskType}}</td>
+        <td>{{taskInfo.taskDate}}</td>
         <td>{{taskInfo.taskDescription}}</td>
       </tr>
     </tbody>

@@ -1,26 +1,18 @@
 <div class="row">
   <div class="col-md-6">
       <button class="btn btn-warning" [routerLink]="['/task']">Back</button>
+      <br>
+      <br>
     <form #t="ngForm" (ngSubmit)="add(t.value)">
       <div class="form-group">
-        <label for="eachUserID">Technicians Name</label>
-        <!-- <select #taskTechicianName="ngModel" [(ngModel)]="tasks.taskTechnicianName" name="taskTechnicianName" id="taskTechnicianName" class="form-control" ng-selected="selected">
-          <option value="" disabled>Choose Technician</option>
-          <option *ngFor="let a of techNames$ | async " [ngValue] ="a.key">
+        <select #taskTechnicianName="ngModel" [(ngModel)]="tasks.taskTechnicianName" name="taskTechnicianName" id="taskTechnicianName"  class="form-control" (change)="selectedChangeHandler($event)">
+          <option value="">--Choose a Technician Name--</option>
+          <option *ngFor="let a of techNames$ | async" [ngValue] ="a.name">
             {{ a.name }}
-          </option>
-        </select> -->
-        <select #taskTechnicianName="ngModel" [(ngModel)]="tasks.eachUserID" name="eachUserID" id="eachUserID"  class="form-control" (change)="selectedChangeHandler($event)">
-          <option value="">--Choose an Technician Name--</option>
-          <option *ngFor="let a of techNames$ | async" [ngValue] ="a.$key">
-            {{a.name }}
           </option>
       </select>
       </div>
-      <div class="form-group">
-        <label for="eachUserID">User ID: </label>
-        <input #eachUserID="ngModel" [(ngModel)]="tasks.eachUserID" name="eachUserID" id="eachUserID" type="text" class="form-control" placeholder="{{eachUserID}}" required>
-      </div>
+      <!-- <p><span>You Selected: {{eachUserID}}</span></p> -->
       <div class="form-group">
         <label for="taskName">TaskName</label>
         <input #taskName="ngModel" [(ngModel)]="tasks.taskName" name="taskName" id="taskName" type="text" class="form-control" required>
@@ -34,13 +26,13 @@
         <input #taskSuburb="ngModel" [(ngModel)]="tasks.taskSuburb" name="taskSuburb" id="taskSuburb" type="text" class="form-control" required>
       </div>
       <div class="form-group">
-        <label for="taskTypes">Type</label>
-        <input #taskType="ngModel" [(ngModel)]="tasks.tasksTypes" name="taskTypes" id="taskTypes" type="text" class="form-control" placeholder="Technicians Only">
+        <label for="taskType">Type</label>
+        <input #taskType="ngModel" [(ngModel)]="tasks.tasksType" name="taskType" id="taskType" type="text" class="form-control"required>
       </div>
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label for="taskDate">Date</label>
         <input #taskDate="ngModel" [(ngModel)]="tasks.taskDate" name="taskDate" id="taskDate" type="date" class="form-control" required>
-      </div> -->
+      </div>
       <div class="form-group">
         <label for="taskClass">Class</label>
         <input #taskClass="ngModel" [(ngModel)]="tasks.taskClass" name="taskClass" id="taskClass" type="text" class="form-control" required>
@@ -59,16 +51,15 @@
       <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
       <div class="card-body">
         <h4>Assign Tasks</h4>
-        <p class="card-text">Technician: {{tasks.taskTechnicianName}}</p>
+        <p class="card-text">Technician Name: {{tasks.taskTechnicianName}}</p>
         <p class="card-text">Tasks: {{tasks.taskName}}</p>
         <p class="card-text">Address: {{tasks.taskAddress}}</p>
         <p class="card-text">Suburb: {{tasks.taskSuburb}}</p>
         <p class="card-text">Type: {{tasks.taskType}}</p>
-        <p class="card-text">Date: {{tasks.taskDate}}</p>
+        <p class="card-text">Date & Time: {{tasks.taskDate | date:"MM/dd/yy hh:mm a"}}</p>
         <p class="card-text">Class: {{tasks.taskClass}}</p>
         <p class="card-text">Description: {{tasks.taskDescription}}</p>
         <p class="card-text"></p>
-
       </div>
     </div>
   </div>
