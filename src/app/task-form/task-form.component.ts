@@ -13,7 +13,7 @@ export class TaskFormComponent implements OnInit {
   //list of technames
   techNames$;
   //list of tasks
-  tasks = {};
+  tasks;
   taskId;
 
   //dropdown technicians name
