@@ -1,6 +1,9 @@
-<p>
-  <a routerLink="/task/new" class="btn btn-primary">Add Tasks</a>
-</p>
+<button class="btn btn-warning" [routerLink]="['/dashboard']">Back</button>
+
+<a routerLink="/task/new" class="btn btn-primary">Add Tasks</a>
+
+<br>
+<br>
 
 <!-- Search -->
 <p>
@@ -15,7 +18,7 @@
   <thead>
     <tr>
       <!-- <th>UID</th> -->
-      <th>Technician</th>
+      <!-- <th>Technician</th> -->
       <th>Task Name</th>
       <th>Address</th>
       <!-- <th>Suburb</th> -->
@@ -29,7 +32,7 @@
   <tbody>
     <tr *ngFor="let b of filteredTasks">
       <!-- <td>{{ b.eachUserID }}</td> -->
-      <td>{{ b.taskTechnicianName}}</td>
+      <!-- <td>{{ b.taskTechnicianName}}</td> -->
       <td>{{ b.taskName }}</td>
       <td>{{ b.taskAddress }}</td>
       <!-- <td>{{ b.taskSuburb }}</td> -->
