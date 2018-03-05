@@ -12,8 +12,9 @@ import { TechniciansService } from '../services/technicians.service';
 })
 export class TechniciansFormComponent{
 
-  technicians;
+  technicians={};
   id;
+  newTech$;
 
   constructor(
     private db: AngularFireDatabase,
@@ -45,6 +46,10 @@ export class TechniciansFormComponent{
     this.techniciansService.delete(this.id);
     this.router.navigate(['/technicians']);
     }
+  
+  // createAuth(){
+  //   this.newTech$ = this.techniciansService.createUser(this.technicians);
+  // }
 
 
 }

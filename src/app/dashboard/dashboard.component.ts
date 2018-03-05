@@ -29,28 +29,29 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mapsAPILoader.load().then(
-      () => {
-        let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement,
-        { types: ["address"]});
+    // this.mapsAPILoader.load().then(
+    //   () => {
+    //     let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement,
+    //     { types: ["address"]});
 
-        autocomplete.addListener("places_changed", () => {
-          this.ngZone.run(() => {
-            let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+    //     autocomplete.addListener("places_changed", () => {
+    //       this.ngZone.run(() => {
+    //         let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-            if(place.geometry === undefined || place.geometry === null) {
-              return;
-            }
-          });
-        });
-      }
-    );
+    //         if(place.geometry === undefined || place.geometry === null) {
+    //           return;
+    //         }
+    //       });
+    //     });
+    //   }
+    // );
   }
 
   //maps
   latitude = -36.852399;
   longitude = 174.635958;
   locationChoosen = false;
+  
 
   onChoosenLocation(event) {
     //console.log(event);
