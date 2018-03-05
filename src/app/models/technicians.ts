@@ -1,8 +1,10 @@
 export interface Technicians{
-    name: string;
-    email: string;
-    expiration: string;
-    phone: string;
-    hobby: string;
-    bio: string;
+ 
+    name: String;
+    email: String;
+    password:String;
+    expiration: String;
+    phone: String;
+    hobby: String;
+    bio: String;
 }

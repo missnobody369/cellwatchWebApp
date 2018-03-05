@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Technicians } from '../models/technicians';
 
 @Injectable()
 export class TechniciansService {
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase, private af: AngularFireAuth) { }
 
   //create technicians list and push inside child in firebase
   create(technicians){
@@ -31,4 +33,19 @@ export class TechniciansService {
   delete(techniciansId){
     return this.db.object('/users/' + techniciansId).remove();
   }
+
+  // createUser (technicians){
+  //  return this.af.auth.createUserWithEmailAndPassword(technicians.email, 
+  //   technicians.password)
+  //  .catch(function(error) {
+  //     // Handle Errors here.
+  //     console.log(technicians.email);
+  //     console.log(technicians.password);
+
+  //     var errorMessage = error.message;
+  //     // ...
+  //   });
+  }
+
+  
 }
