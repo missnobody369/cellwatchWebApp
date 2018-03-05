@@ -14,7 +14,6 @@ export class TechniciansFormComponent{
 
   technicians={};
   id;
-  newTech$;
 
   constructor(
     private db: AngularFireDatabase,
