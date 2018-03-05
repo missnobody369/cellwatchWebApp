@@ -45,7 +45,7 @@ export class TechniciansService {
   //     var errorMessage = error.message;
   //     // ...
   //   });
-  }
+  // }
 
   
 }
