@@ -1,11 +1,1 @@
-Start forking with Mae
-
-Testing with Nidennis and Michel
-
-<<<<<<< HEAD
-Testing number 6
-
-New branch Adjusting-requirements
-=======
-Testing number 7
->>>>>>> b65bfbe75ac105556a4184ecd31751a40a5b9cc8
+Working with branches
