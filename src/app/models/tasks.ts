@@ -8,4 +8,5 @@ export interface Tasks{
     taskDate: String;
     taskClass: String;
     taskDescription: String;
+    zipFileURL: String;
 }

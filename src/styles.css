@@ -4,3 +4,8 @@
 body{
     padding-top: 80px;
 }
+
+#details {
+    float: left;
+    margin-top: 80px;
+}

@@ -19,7 +19,13 @@ export class TaskService {
   }
 
   getAllTask(){
-    return this.db.list('/tasks/');
+    return this.db.list('/tasks', {
+      query: {
+        orderByChild: 'taskDate'
+        
+      }
+    });
+
     //return this.db.database.ref('/users/').child("").child('/tasks/');
     //console.log();
   }
