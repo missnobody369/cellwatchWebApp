@@ -22,7 +22,6 @@ export class TaskService {
     return this.db.list('/tasks', {
       query: {
         orderByChild: 'taskDate'
-        
       }
     });
 

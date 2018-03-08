@@ -1,6 +1,6 @@
 <h1>TECHNICIAN'S WHEREABOUTS</h1>
 <div class="form-group">
-    <input placeholder="Technician's Name" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+    <input placeholder="Technician's Name" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl" id="maps_search">
 </div>
 
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" >
@@ -16,5 +16,6 @@
       </agm-marker>
     </div>  
 </agm-map>
+
 
  
