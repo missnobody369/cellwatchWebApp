@@ -1,3 +1,4 @@
+
 <button class="btn btn-warning" [routerLink]="['/technicians']">Back</button>
 <br>
 <br>
@@ -11,8 +12,8 @@
             <p class="card-text">Email: {{ technicians.email }}</p>
             <p class="card-text">Expiration: {{ technicians.expirationDate }}</p>
             <p class="card-text">Phone: {{ technicians.phone }}</p>
-            <p class="card-text">Hobby: {{ technicians.hobby }}</p>
-            <p class="card-text">Bio: {{ technicians.bio }}</p>
+            <!-- <p class="card-text">Hobby: {{ technicians.hobby }}</p>
+            <p class="card-text">Bio: {{ technicians.bio }}</p> -->
           </div>
         </div>
 </div>
@@ -30,6 +31,7 @@
       <th>Type</th>
       <th>Date</th>
       <th>Description</th>
+      <th>Zip</th>
       <th></th>
     </tr>
   </thead>
@@ -43,6 +45,12 @@
         <td>{{taskInfo.taskType}}</td>
         <td>{{taskInfo.taskDate | date:"dd/MM/yy hh:mm a"}}</td>
         <td>{{taskInfo.taskDescription}}</td>
+        <td>
+            <!-- if !={{ taskInfo.zipFileUrl }} -->
+            <a href="{{ taskInfo.zipFileUrl }}">download</a>
+        </td>
+        
       </tr>
     </tbody>
 </table>
+

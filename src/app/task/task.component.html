@@ -18,7 +18,7 @@
   <thead>
     <tr>
       <!-- <th>UID</th> -->
-      <!-- <th>Technician</th> -->
+      <th>Technician</th>
       <th>Task Name</th>
       <th>Address</th>
       <!-- <th>Suburb</th> -->
@@ -30,9 +30,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let b of filteredTasks">
+    <tr *ngFor="let b of filteredTechnicians">
       <!-- <td>{{ b.eachUserID }}</td> -->
-      <!-- <td>{{ b.taskTechnicianName}}</td> -->
+      <td>{{ b.taskTechnicianName}}</td>
       <td>{{ b.taskName }}</td>
       <td>{{ b.taskAddress }}</td>
       <!-- <td>{{ b.taskSuburb }}</td> -->

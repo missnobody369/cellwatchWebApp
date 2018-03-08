@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -19,7 +20,13 @@ export class TaskService {
   }
 
   getAllTask(){
-    return this.db.list('/tasks/');
+    return this.db.list('/tasks', {
+      query: {
+        orderByChild: 'taskDate'
+        
+      }
+    });
+
     //return this.db.database.ref('/users/').child("").child('/tasks/');
     //console.log();
   }

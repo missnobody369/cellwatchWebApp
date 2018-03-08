@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,21 +13,21 @@ import { Tasks } from '../models/tasks';
 export class TaskComponent implements OnInit, OnDestroy {
   id;
   tasks: Tasks[];
-  filteredTasks: any[];
+  filteredTechnicians: any[];
   subscription: Subscription;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute) {
     this.subscription = this.taskService.getAllTask()
-    .subscribe(tasks => this.filteredTasks = this.tasks = tasks);
+    .subscribe(tasks => this.filteredTechnicians = this.tasks = tasks);
   }
 
-  filter(queryTasks: string){
+  filter(queryTechnicians: string){
     // querying logic
     // console.log(queryTasks);
-    this.filteredTasks =(queryTasks) ?
+    this.filteredTechnicians =(queryTechnicians) ?
       // this.tasks.filter(s => s.taskTechicianName.toLowerCase().includes(queryTasks.toLowerCase())) : 
       // this.tasks;
-      this.tasks.filter(s => s.taskName.toLowerCase().includes(queryTasks.toLowerCase())) : 
+      this.tasks.filter(s => s.taskName.toLowerCase().includes(queryTechnicians.toLowerCase())) : 
       this.tasks;
   }
   
