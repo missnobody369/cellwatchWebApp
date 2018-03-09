@@ -1,10 +1,11 @@
-//JB 22-02-2018 Added name and address info to the markers
+//JBAL 22-02-2018 Added name and address info to the markers
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GeoService } from '../services/geo.service';
-import { ElementRef, NgZone, ViewChild } from '@angular/core';
+import { ElementRef, NgZone, NgModule, ViewChild } from '@angular/core';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { FormControl } from '@angular/forms';
 })
 export class MapsComponent implements OnInit {
 
-  mapsAPILoader: any;
+  longitude: number;
+  latitude: number;
   lat: number;
   lng: number;
   zoom: number;
@@ -23,55 +25,65 @@ export class MapsComponent implements OnInit {
   searchControl: FormControl;
 
   @ViewChild("search")
-  public searchElementRef: ElementRef;
+  searchElementRef: ElementRef;
 
   markers$;
   subscription: any;
 
   constructor(
-    private geo: GeoService, mapsAPILoader: MapsAPILoader, 
+    private geo: GeoService, 
+    private mapsAPILoader: MapsAPILoader, 
     private ngZone: NgZone
   ) {}
 
   ngOnInit() {
     
+    //set google maps defaults
     this.lat = -36.8523902;
     this.lng = 174.6359334;
-    this.zoom = 10;
-    
+    this.zoom = 12;
 
     //FormControl creation
     this.searchControl = new FormControl();
 
+    //set current position
+    this.setCurrentPosition();
+
      //setting current position
      this.markers$ = this.geo.getLocations();
 
-    // //Autocomplete when typing the name of the technician
-    // this.mapsAPILoader.load().then(() => {
-    //   let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-    //     types: ["name"]
-    //   });
-    //   autocomplete.addListener("place_changed", () => {
-    //     this.ngZone.run(() => {
-    //       //getting the result
-    //       let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+    //Autocomplete when typing the place of the technician
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
 
-    //       //to verify result
-    //       if (place.geometry === undefined || place.geometry === null) {
-    //         return;
-    //       }
+          //getting the result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-    //        //set latitude, longitude and zoom
-    //        this.lat = place.geometry.location.lat();
-    //        this.lng = place.geometry.location.lng();
-            this.zoom = 13;
-    //       }); 
-    //     });  
-    //   });
-         
+          //to verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+           //set latitude, longitude and zoom
+           this.lat = place.geometry.location.lat();
+           this.lng = place.geometry.location.lng();
+           this.zoom = 18;
+          }); 
+        });  
+      });
+    }
+
+      private setCurrentPosition() {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            this.latitude = position.coords.latitude;
+            this.longitude = position.coords.longitude;
+            this.zoom = 8;
+          });
+        }         
   }
-  
-  
 }
-
-

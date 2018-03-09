@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     // this.mapsAPILoader.load().then(
     //   () => {
     //     let autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement,
