@@ -31,6 +31,8 @@
       <th>Type</th>
       <th>Date</th>
       <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
       <th>Zip</th>
       <th></th>
     </tr>
@@ -46,8 +48,9 @@
         <td>{{taskInfo.taskType}}</td>
         <td>{{taskInfo.taskDate | date:"dd/MM/yy hh:mm a"}}</td>
         <td>{{taskInfo.taskDescription}}</td>
+        <td>{{taskInfo.taskStartDate}}</td>
+        <td>{{taskInfo.taskEndDate}}</td>
         <td>
-            <!-- if !={{ taskInfo.zipFileUrl }} -->
             <a href="{{ taskInfo.zipFileUrl }}">download</a>
         </td>
         

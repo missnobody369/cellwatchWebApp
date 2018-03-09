@@ -7,7 +7,13 @@ body{
 }
 #details {
     float: left;
-    margin-top: 80px;
+    margin-top: 10px;
+}
+
+#searchLocation {
+    float: right;
+    margin-top: 5%;
+    width: 30%;
 }
 
 input,
@@ -28,7 +34,9 @@ table {
 
 th, td {
     text-align: left;
-    padding: 8px;
+    padding: 50%;
+    width: 10%;
+    height: 10%;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
