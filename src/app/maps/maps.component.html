@@ -2,10 +2,8 @@
 <h1>TECHNICIAN'S WHEREABOUTS</h1>
 
 <div class="form-group">
-    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-  </div>
-
-
+    <input placeholder="Technician's Name" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl" id="maps_search">
+</div>
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" >
     <div *ngFor="let m of markers$ | async">
       <agm-marker [latitude]="m.latitude" [longitude]="m.longitude" [label]="m.technicianName">
@@ -19,5 +17,6 @@
       </agm-marker>
     </div>  
 </agm-map>
+
 
  

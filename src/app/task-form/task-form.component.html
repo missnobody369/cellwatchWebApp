@@ -7,12 +7,12 @@
       <div class="form-group">
         <select #taskTechnicianName="ngModel" [(ngModel)]="tasks.taskTechnicianName" name="taskTechnicianName" id="taskTechnicianName"  class="form-control" (change)="selectedChangeHandler($event)">
           <option value="">--Choose a Technician Name--</option>
-          <option *ngFor="let a of techNames$ | async" [ngValue] ="a.name">
+          <option *ngFor="let a of techNames$ | async" [ngValue] ="a.$key">
             {{ a.name }}
           </option>
       </select>
       </div>
-      <!-- <p><span>You Selected: {{eachUserID}}</span></p> -->
+      <p><span>You Selected: {{eachUserID}}</span></p>
       <div class="form-group">
         <label for="taskName">TaskName</label>
         <input #taskName="ngModel" [(ngModel)]="tasks.taskName" name="taskName" id="taskName" type="text" class="form-control" required>
@@ -28,20 +28,20 @@
       </div>
       <div class="form-group">
         <label for="taskType">Type</label>
-        <input #taskType="ngModel" [(ngModel)]="tasks.tasksType" name="taskType" id="taskType" type="text" class="form-control"required>
+        <input #taskType="ngModel" [(ngModel)]="tasks.taskType" name="taskType" id="taskType" type="text" class="form-control"required>
       </div>
       <div class="form-group">
         <label for="taskDate">Date</label>
         <input #taskDate="ngModel" [(ngModel)]="tasks.taskDate" name="taskDate" id="taskDate" type="date" class="form-control" required>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="taskClass">Class</label>
         <input #taskClass="ngModel" [(ngModel)]="tasks.taskClass" name="taskClass" id="taskClass" type="text" class="form-control" required>
-      </div>
-      <div class="form-group">
+      </div> -->
+      <!-- <div class="form-group">
         <label for="taskDescription">Description</label>
         <input #taskDescription="ngModel" [(ngModel)]="tasks.taskDescription" name="taskDescription" id="taskDescription" type="text" class="form-control">
-      </div>
+      </div> -->
       <button class="btn btn-primary">Add Task</button>
     </form>
   </div>

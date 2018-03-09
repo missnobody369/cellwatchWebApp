@@ -1,4 +1,15 @@
 agm-map {
-    height: 800px;
-    width: 1000px;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#maps_search {
+  position:absolute; 
+  display:inline-block;
+  width: 80%;
+  z-index:10
+}
+
