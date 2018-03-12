@@ -9,7 +9,7 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="dashboard" *ngIf="isLoggedIn">Dashboard <span class="sr-only">(current)</span></a>
       </li>
-      
+    
       <li ngbDropdown class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="admin$ | async as admin">
           {{ admin.email }}

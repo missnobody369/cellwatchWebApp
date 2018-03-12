@@ -14,6 +14,19 @@ export class TechniciansService {
     return this.db.list('/users').push(technicians);
   }
 
+  // create(technicians){
+  //   this.af.auth.createUserWithEmailAndPassword({email: technicians.email, password: technicians.password})
+  //   .then(res => {
+  //     this.db.database.ref('/users').push({
+  //       email: technicians.email,
+  //       uid: res.uid
+  //     });
+  //   })
+  //   .catch(err => {
+  //     console.error('err', err);
+  //   })
+  // }
+  
   //get/view all the data from database:table
   getAllInfo(){
     return this.db.list('/users/');
@@ -34,18 +47,5 @@ export class TechniciansService {
     return this.db.object('/users/' + techniciansId).remove();
   }
 
-  // createUser (technicians){
-  //  return this.af.auth.createUserWithEmailAndPassword(technicians.email, 
-  //   technicians.password)
-  //  .catch(function(error) {
-  //     // Handle Errors here.
-  //     console.log(technicians.email);
-  //     console.log(technicians.password);
 
-  //     var errorMessage = error.message;
-  //     // ...
-  //   });
-  // }
-
-  
 }

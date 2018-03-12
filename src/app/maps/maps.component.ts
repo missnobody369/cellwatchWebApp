@@ -45,7 +45,7 @@ export class MapsComponent implements OnInit {
 
      //setting current position
      this.markers$ = this.geo.getLocations();
-
+  
     // //Autocomplete when typing the name of the technician
     // this.mapsAPILoader.load().then(() => {
     //   let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
@@ -68,8 +68,16 @@ export class MapsComponent implements OnInit {
     //       }); 
     //     });  
     //   });
+    let styles = [{
+      "featureType": "water",
+      "stylers": [{
+          "color": "#ff0000"
+        }]
+    }];
          
   }
+
+  
   
   
 }

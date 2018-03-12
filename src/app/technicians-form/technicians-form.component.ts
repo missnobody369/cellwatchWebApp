@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TechniciansService } from '../services/technicians.service';
@@ -11,7 +11,7 @@ import { TechniciansService } from '../services/technicians.service';
   styleUrls: ['./technicians-form.component.css']
 })
 export class TechniciansFormComponent{
-
+  // newTech$;
   technicians={};
   id;
 
@@ -33,7 +33,7 @@ export class TechniciansFormComponent{
     if (this.id) this.techniciansService.update(this.id, technicians);
     //save function when technician is created to firebase
     else this.techniciansService.create(technicians);
-
+   
     this.router.navigate(['/technicians']);
   }
 
@@ -46,7 +46,8 @@ export class TechniciansFormComponent{
     this.router.navigate(['/technicians']);
     }
   
-  // createAuth(){
+  // createUser(technicians){
+     
   //   this.newTech$ = this.techniciansService.createUser(this.technicians);
   // }
 

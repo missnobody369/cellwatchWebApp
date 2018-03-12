@@ -31,6 +31,8 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { TechNamesService } from './services/tech-names.service';
 import { TaskService } from './services/task.service';
 import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks.component';
+import { TaskDetailComponent} from './task-detail/task-detail.component';
+
 
 
 
@@ -46,6 +48,7 @@ import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks
     TaskComponent,
     TaskFormComponent,
     TechniciansTasksComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks
       apiKey: 'AIzaSyC2nZKKz6bdaYuVUP9VcI1MoNxvzUvFvxY',
       libraries: ["places"]
     }),
+    
     NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
@@ -91,31 +95,36 @@ import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks
       component: TaskFormComponent,
       canActivate: [AuthGuardService]
       },
-      { path: 'task/:id',
-      component: TaskFormComponent,
-      canActivate: [AuthGuardService]
-      },
+      { path: 'task-detail/:id', 
+        component: TaskDetailComponent,
+        canActivate: [AuthGuardService]
+      }, 
+
+      
+      // { path: 'task/:id',
+      // component: TaskFormComponent,
+      // canActivate: [AuthGuardService]
+      // },
+      // { path: 'technicians/new',
+      //   component: TechniciansFormComponent,
+      //   canActivate: [AuthGuardService]
+      // },
+    
 
       //technicians
       { path: 'technicians',
         component: TechniciansComponent,
         canActivate: [AuthGuardService]
       },
-      { path: 'technicians/new',
-        component: TechniciansFormComponent,
-        canActivate: [AuthGuardService]
-      },
+      
       { path: 'technicians/:id',
         component: TechniciansFormComponent,
         canActivate: [AuthGuardService]
       },
       { path: '', 
-        component: LoginComponent 
-      },
-
-
- 
-
+        component: LoginComponent,
+        canActivate: [AuthGuardService]
+      } 
 
     ])
   ],
