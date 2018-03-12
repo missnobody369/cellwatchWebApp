@@ -110,13 +110,9 @@ import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks
         canActivate: [AuthGuardService]
       },
       { path: '', 
-        component: LoginComponent 
-      },
-
-
- 
-
-
+        component: LoginComponent,
+        canActivate: [AuthGuardService]
+      }
     ])
   ],
   providers: [
