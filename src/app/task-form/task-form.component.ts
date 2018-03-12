@@ -19,9 +19,12 @@ export class TaskFormComponent implements OnInit {
   //dropdown technicians name
   eachUserID: string = '';
 
+
   selectedChangeHandler (event: any) {
     this.eachUserID = event.target.value;
   }
+
+
 
   //get data of technames
   constructor(

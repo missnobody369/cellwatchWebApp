@@ -52,38 +52,18 @@ export class MapsComponent implements OnInit {
      //setting current position
      this.markers$ = this.geo.getLocations();
 
-    //Autocomplete when typing the place of the technician
-    this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
+  
+    // //Autocomplete when typing the name of the technician
+    // this.mapsAPILoader.load().then(() => {
+    //   let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+    //     types: ["name"]
+    //   });
+    //   autocomplete.addListener("place_changed", () => {
+    //     this.ngZone.run(() => {
+    //       //getting the result
+    //       let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
 
           //getting the result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-          //to verify result
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-
-           //set latitude, longitude and zoom
-           this.lat = place.geometry.location.lat();
-           this.lng = place.geometry.location.lng();
-           this.zoom = 18;
-          }); 
-        });  
-      });
-    }
-
-      private setCurrentPosition() {
-        if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition((position) => {
-            this.latitude = position.coords.latitude;
-            this.longitude = position.coords.longitude;
-            this.zoom = 8;
-          });
-        }         
-  }
-}

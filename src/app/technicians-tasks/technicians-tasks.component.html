@@ -24,14 +24,15 @@
   <thead>
     <tr>
       <!-- <th>Task ID</th> -->
-      <th>Task Name</th>
+      <th>Status</th>
+      <th>Task</th>
       <th>Address</th>
       <th>Comments</th>
-      <th>Suburb</th>
+      <!-- <th>Suburb</th> --> 
       <th>Class</th>
       <th>Type</th>
-      <th>Date</th>
-      <th>Description</th>
+      <!-- <th>Date</th> -->
+      <!-- <th>Description</th> -->
       <th>Start Date</th>
       <th>End Date</th>
       <th>Zip</th>
@@ -41,20 +42,21 @@
     <tbody>
       <tr *ngFor="let taskInfo of tasks$ | async">
         <!-- <td>{{taskInfo.eachUserID}}</td> -->
-        <td>{{taskInfo.taskName}}</td>
+        <a [routerLink]="['/task-detail', taskInfo.$key]"><td>{{taskInfo.taskStatus}}</td></a>
         <td>{{taskInfo.taskAddress}}</td>
+        <td>{{taskInfo.taskName}}</td>
+  
         <td>{{taskInfo.taskComment}}</td>
-        <td>{{taskInfo.taskSuburb}}</td>
+        <!-- <td>{{taskInfo.taskSuburb}}</td> -->
         <td>{{taskInfo.taskClass}}</td>
         <td>{{taskInfo.taskType}}</td>
-        <td>{{taskInfo.taskDate | date:"dd/MM/yy hh:mm a"}}</td>
-        <td>{{taskInfo.taskDescription}}</td>
+        <!-- <td>{{taskInfo.taskDate | date:"dd/MM/yy hh:mm a"}}</td> -->
+        <!-- <td>{{taskInfo.taskDescription}}</td> -->
         <td>{{taskInfo.taskStartDate}}</td>
         <td>{{taskInfo.taskEndDate}}</td>
         <td>
             <a href="{{ taskInfo.zipFileUrl }}">download</a>
         </td>
-        
       </tr>
     </tbody>
 </table>
