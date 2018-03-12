@@ -1,17 +1,18 @@
+<!-- JBAL Added Date and Time to determin the present location -->
 <h1>TECHNICIAN'S WHEREABOUTS</h1>
+
 <div class="form-group">
     <input placeholder="Technician's Name" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl" id="maps_search">
 </div>
-
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" >
-
     <div *ngFor="let m of markers$ | async">
-      <agm-marker [latitude]="m.latitude" [longitude]="m.longitude"  >
+      <agm-marker [latitude]="m.latitude" [longitude]="m.longitude" [label]="m.technicianName">
         <agm-info-window>
           <h3>
             <strong>{{m.technicianName}}</strong>
           </h3>
-          <p> <strong>Address: </strong> {{ m.address }}</p>
+          <p> <strong>Address: </strong> {{ m.address }}</p>                 
+          <h6> <strong>Date and Time: </strong> {{ m.timeStamp | date:"MM/dd/yy hh:mm a" }} </h6>
         </agm-info-window>
       </agm-marker>
     </div>  
