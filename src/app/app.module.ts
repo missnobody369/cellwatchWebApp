@@ -7,11 +7,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 ///JB added 20-02-2018
 // AGM libraries
 import { GeoService } from './services/geo.service';
-import { MapsComponent } from './maps/maps.component';
 import { AgmCoreModule } from '@agm/core';
 
 
@@ -32,6 +32,9 @@ import { TechNamesService } from './services/tech-names.service';
 import { TaskService } from './services/task.service';
 import { TechniciansTasksComponent } from './technicians-tasks/technicians-tasks.component';
 import { TaskDetailComponent} from './task-detail/task-detail.component';
+import { TaskTypeService } from './services/task-type.service';
+import { TypesComponent } from './types/types.component';
+import { TypeFormComponent } from './type-form/type-form.component';
 
 
 
@@ -42,19 +45,21 @@ import { TaskDetailComponent} from './task-detail/task-detail.component';
     CellwatchNavbarComponent,
     DashboardComponent,
     TechniciansComponent,
-    MapsComponent,
     LoginComponent,
     TechniciansFormComponent,
     TaskComponent,
     TaskFormComponent,
     TechniciansTasksComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    TypesComponent,
+    TypeFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    NgxPaginationModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
 
@@ -72,11 +77,7 @@ import { TaskDetailComponent} from './task-detail/task-detail.component';
       component: DashboardComponent,
       canActivate: [AuthGuardService]
       },
-      //JB added maps component 
-      { path: 'maps', 
-      component: MapsComponent, 
-      canActivate: [AuthGuardService]
-      },
+
       { path: 'technicians-tasks',
       component: TechniciansTasksComponent,
       canActivate: [AuthGuardService]
@@ -98,7 +99,21 @@ import { TaskDetailComponent} from './task-detail/task-detail.component';
       { path: 'task-detail/:id', 
         component: TaskDetailComponent,
         canActivate: [AuthGuardService]
-      }, 
+      },
+      
+      { path: 'types', 
+        component: TypesComponent,
+        canActivate: [AuthGuardService]
+      },
+      { path: 'types/new', 
+        component: TypeFormComponent,
+        canActivate: [AuthGuardService]
+      },
+      { path: 'type-form', 
+        component: TypeFormComponent,
+        canActivate: [AuthGuardService]
+      },
+      
 
       
       // { path: 'task/:id',
@@ -133,6 +148,7 @@ import { TaskDetailComponent} from './task-detail/task-detail.component';
     AuthGuardService,
     TechniciansService,
     TechNamesService,
+    TaskTypeService,
     TaskService,
     GeoService
   ],

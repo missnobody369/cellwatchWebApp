@@ -26,13 +26,14 @@ export class TechniciansTasksComponent implements OnInit {
     private taskService: TaskService,
     private router: Router,
     private route: ActivatedRoute) {
-    //get data from database view 1x1 using id: technicians
+
+
     this.id = this.route.snapshot.paramMap.get("id");
     if (this.id) this.techniciansService.getTechInfo(this.id).take(1).subscribe(t => (this.technicians = t));
-      
-   
+
+
     this.tasks$ = this.taskService.getTaskById(this.id);
-    
+
   }
 
   ngOnInit() {}

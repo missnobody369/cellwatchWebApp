@@ -7,4 +7,5 @@ export interface Technicians{
     phone: String;
     hobby: String;
     bio: String;
+    profileUrl: String;
 }
