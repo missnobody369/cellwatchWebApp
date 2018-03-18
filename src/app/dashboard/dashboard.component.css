@@ -10,13 +10,9 @@ agm-map {
 .card {
     box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
     opacity: 0.7;
-    left: -150%;
 }
 
 .searchBox  {
     float: right;
-    margin-top: 25%;
-    margin-bottom: 25%;
-    width: 250%;
 }
 
