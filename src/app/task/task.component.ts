@@ -20,13 +20,13 @@ export class TaskComponent implements OnInit, OnDestroy {
     .subscribe(tasks => this.filteredTechnicians = this.tasks = tasks);
   }
 
-  filter(queryTechnicians: string){
+  filter(queryTasks: string){
     // querying logic
     // console.log(queryTasks);
-    this.filteredTechnicians =(queryTechnicians) ?
+    this.filteredTechnicians =(queryTasks) ?
       // this.tasks.filter(s => s.taskTechicianName.toLowerCase().includes(queryTasks.toLowerCase())) : 
       // this.tasks;
-      this.tasks.filter(s => s.taskName.toLowerCase().includes(queryTechnicians.toLowerCase())) : 
+      this.tasks.filter(s => s.taskName.toLowerCase().includes(queryTasks.toLowerCase())) : 
       this.tasks;
   }
   
