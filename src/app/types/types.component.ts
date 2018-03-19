@@ -8,11 +8,10 @@ import { TaskTypeService } from '../services/task-type.service';
 })
 export class TypesComponent implements OnInit {
 
-  types$;
-   
+  taskCategory$;
+
   constructor(private taskTypeService: TaskTypeService) {
-     
-    this.types$ = this.taskTypeService.getAllTaskTypes();
+     this.taskCategory$ = this.taskTypeService.getTaskTypes();
   }
 
   ngOnInit() {
