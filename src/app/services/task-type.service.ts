@@ -15,4 +15,15 @@ export class TaskTypeService {
   getTaskTypes(){
     return this.db.list('/taskType');
   }
+
+  //view all task types
+  getAllTaskTypes() {
+    return this.db.list('/taskType/');
+  }
+
+  //get task 1 x 1
+  getAllTask(typeId){
+    return this.db.object('/taskType/' + typeId);
+  }
+
 }

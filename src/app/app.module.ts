@@ -113,6 +113,10 @@ import { TypeFormComponent } from './type-form/type-form.component';
         component: TypeFormComponent,
         canActivate: [AuthGuardService]
       },
+      { path: 'types/:id', 
+        component: TypeFormComponent,
+        canActivate: [AuthGuardService]
+      },
       
 
       

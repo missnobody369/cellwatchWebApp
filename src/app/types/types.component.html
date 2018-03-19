@@ -1,2 +1,23 @@
 <button class="btn btn-warning" [routerLink]="['/dashboard']">Back</button>
 <a routerLink="/types/new" class="btn btn-primary">Add Task Type</a>
+
+
+ <br>
+ <br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let typeTask of types$ |async">
+            <td>{{typeTask.type}}</td>
+            <td>
+                <a [routerLink]="['/types/', typeTask.$key]">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
