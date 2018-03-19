@@ -2,12 +2,29 @@
 
 <br>
 <br>
-<form #type="ngForm" (ngSubmit)="saveType(type.value)">
-  <div class="form-group">
-    <label for="type">Task Type</label>
-    <input #type="ngModel" ngModel name="type" id="type" type="text" class="form-control" required>
-    <div class="alert alert-dager"></div>
+
+<div class="row">
+  <div class="col-md-6">
+    <form #addTypeTask="ngForm" (ngSubmit)="saveType(type.value)">
+      <div class="form-group">
+        <label for="addType">Task Type</label>
+        <input #addType="ngModel" [(ngModel)]="type.addType" name="addType" id="addType" type="text" class="form-control" required>
+        <!-- <div class="alert alert-danger">
+          Please Add Task Type.
+        </div> -->
+      </div>
+    
+      <button class="btn btn-primary">Add Task Type</button>
+      <button (click)="deleteType()" class="btn btn-danger">Delete Task Type</button>
+    </form>
   </div>
 
-  <button class="btn btn-primary">Add Task Type</button>
-</form>
+  <div class="col-md-6">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Preview</h5>
+        <p class="card-text">{{type.addType}}</p>
+      </div>
+    </div>
+  </div>
+</div>

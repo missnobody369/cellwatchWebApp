@@ -13,19 +13,6 @@ export class TechniciansService {
   create(technicians){
     return this.db.list('/users').push(technicians);
   }
-
-  // create(technicians){
-  //   this.af.auth.createUserWithEmailAndPassword({email: technicians.email, password: technicians.password})
-  //   .then(res => {
-  //     this.db.database.ref('/users').push({
-  //       email: technicians.email,
-  //       uid: res.uid
-  //     });
-  //   })
-  //   .catch(err => {
-  //     console.error('err', err);
-  //   })
-  // }
   
   //get/view all the data from database:table
   getAllInfo(){
