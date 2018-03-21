@@ -12,8 +12,7 @@
                {{e.status}}
             </option>
           </select>
-      </div> 
-    
+      </div>     
       <div class="form-group">
           <label for="taskTechnicianName">Name</label>
           <select #eachUserID="ngModel" [(ngModel)]="tasks.eachUserID" name="eachUserID" id="eachUserID"  class="form-control" (change)="selectedChangeHandler($event)">
@@ -35,10 +34,6 @@
           </option>
         </select>
       </div>
-
-
-
-
       <div class="form-group">
         <label for="taskName">TaskName</label>
         <input #taskName="ngModel" [(ngModel)]="tasks.taskName" name="taskName" id="taskName" type="text" class="form-control" required>
@@ -61,15 +56,6 @@
             Suburb is Required.
         </div>
       </div>
-      <!-- <div class="form-group">
-        <label for="taskType">Type</label>
-        <select #taskType="ngModel" [(ngModel)]="tasks.taskType" name="taskType" id="taskType" class="form-control">
-          <option value=""></option>
-          <option *ngFor="let d of taskTypes$ | async" [value]="d.type">
-            {{d.type}}
-          </option>
-        </select>
-      </div> -->
       <div class="form-group">
         <label for="taskStartDate">Start Date</label>
         <input #taskStartDate="ngModel" [(ngModel)]="tasks.taskStartDate" name="taskStartDate" id="taskStartDate" type="date" class="form-control" required>
@@ -84,10 +70,6 @@
             End Date of Task is Required.
         </div>
       </div>
-      <!-- <div class="form-group">
-        <label for="taskClass">Class</label>
-        <input #taskClass="ngModel" [(ngModel)]="tasks.taskClass" name="taskClass" id="taskClass" type="text" class="form-control" required>
-      </div> -->
       <div class="form-group">
         <label for="taskDescription">Description</label>
         <input #taskDescription="ngModel" [(ngModel)]="tasks.taskDescription" name="taskDescription" id="taskDescription" type="text" class="form-control">
@@ -102,7 +84,6 @@
 
   <div class="col-md-6">
     <div class="card" style="width: 30rem;">
-      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
       <div class="card-body">
         <h4>Assign Tasks</h4>
         <!-- <p class="card-text">Technician Name: {{tasks.taskTechnicianName}}</p> -->
@@ -116,7 +97,6 @@
         <p class="card-text">Type: {{tasks.taskType}}</p>
         <p class="card-text">Start Date: {{tasks.taskStartDate}}</p>
         <p class="card-text">End Date: {{tasks.taskEndDate}}</p>
-        <!-- <p class="card-text">Class: {{tasks.taskClass}}</p> -->
         <p class="card-text">Description: {{tasks.taskDescription}}</p>
         <p class="card-text"></p>
       </div>

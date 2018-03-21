@@ -4,27 +4,49 @@
 <br>
 
 <div class="row">
-  <div class="col-md-6">
-    <form #addTypeTask="ngForm" (ngSubmit)="saveType(type.value)">
-      <div class="form-group">
-        <label for="addType">Task Type</label>
-        <input #addType="ngModel" [(ngModel)]="type.addType" name="addType" id="addType" type="text" class="form-control" required>
-        <!-- <div class="alert alert-danger">
-          Please Add Task Type.
-        </div> -->
-      </div>
-    
-      <button class="btn btn-primary">Add Task Type</button>
-      <button (click)="deleteType()" class="btn btn-danger">Delete Task Type</button>
-    </form>
-  </div>
-
-  <div class="col-md-6">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Preview</h5>
-        <p class="card-text">{{type.addType}}</p>
-      </div>
+    <div class="col-md-6">
+        <form #f="ngForm" (ngSubmit)="saveType(f.value)">
+            <div class="form-group">
+                <label for="type">Task Type</label>
+                <input #type="ngModel" [(ngModel)]="typeCategory.type" name="type" id="type" type="text" class="form-control" required>
+        
+                <div class="alert alert-danger" *ngIf="type.touched && type.invalid">
+                    Task Type is required.
+                </div>
+            </div>
+            
+            <button class="btn btn-primary">Add Type</button>
+            <button type="button" (click)="deleteType()" class="btn btn-danger">Delete Type</button>
+        </form>
     </div>
-  </div>
+
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Preview</h5>
+                <p class="card-text">{{typeCategory.type}}</p>
+            </div>
+        </div>
+    </div>
 </div>
+
+<br>
+<br>
+
+<!-- <div class="table-responsive-sm">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task Type</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of taskCategory$ | async | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{ p.type }}</td>
+                <td><button type="button" (click)="deleteType()" class="btn btn-danger">Delete Type</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div> -->

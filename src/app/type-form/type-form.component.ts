@@ -8,26 +8,35 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./type-form.component.css']
 })
 export class TypeFormComponent implements OnInit {
-
-  type = {};
-  id;
   
+  typeCategory = {};
+  id;
 
   constructor(
     private taskTypeService: TaskTypeService,
     private router: Router,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute) {
 
-      let id = this.route.snapshot.paramMap.get('id');
-      if (id) this.taskTypeService.getAllTask(id).take(1).subscribe(y => this.type = y);
-      console.log('MAE' + id);
+     this.id = this.route.snapshot.paramMap.get('id');
+     if (this.id) this.taskTypeService.getAllTask(this.id).take(1).subscribe(m => this.typeCategory = m);
 
+     console.log(this.id);
     }
 
-  saveType(type){
-    this.taskTypeService.create(type);
-    this.router.navigate(['/types']);
-  }
+    saveType(type) {
+      if (this.id) this.taskTypeService.updateType(this.id, type);
+      else this.taskTypeService.create(type);      
+      this.router.navigate(['/types']);
+
+      console.log(this.id);
+    }
+
+    deleteType() {
+      if (!confirm('Are you sure you want to delete this task type?')) return; 
+        this.taskTypeService.deleteTaskType(this.id);
+        this.router.navigate(['/types']);
+        console.log(this.id);
+    }
 
   ngOnInit() {
   }

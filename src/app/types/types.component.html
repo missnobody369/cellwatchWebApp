@@ -5,19 +5,20 @@
  <br>
  <br>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Task Type</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let typeTask of types$ |async">
-            <td>{{typeTask.type}}</td>
-            <td>
-                <a [routerLink]="['/types/', typeTask.$key]">Edit</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive-sm">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task Type</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of taskCategory$ | async | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{ p.type }}</td>
+                <td><a [routerLink]="['/types', p.$key]">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -23,13 +23,9 @@ export class TaskFormComponent implements OnInit {
 
   //dropdown technicians name
   eachUserID: string = '';
-
-
   selectedChangeHandler (event: any) {
     this.eachUserID = event.target.value;
   }
-
-
 
   //get data of technames
   constructor(
@@ -40,8 +36,10 @@ export class TaskFormComponent implements OnInit {
     private route: ActivatedRoute
   ) {
 
+    //dropdown list technicians name
     this.techNames$ = techNamesService.getTechNames();
 
+    //dropdown list task types
     this.taskTypes$ = taskTypeService.getTaskTypes();
 
     this.taskStatus$ = taskTypeService.getTaskStatus();

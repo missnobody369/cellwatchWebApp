@@ -28,10 +28,8 @@ export class TechniciansFormComponent{
     }
 
   save(technicians){
-    //console.log(technicians);
     //updates the product
     if (this.id) this.techniciansService.update(this.id, technicians);
-    //save function when technician is created to firebase
     else this.techniciansService.create(technicians);
    
     this.router.navigate(['/technicians']);

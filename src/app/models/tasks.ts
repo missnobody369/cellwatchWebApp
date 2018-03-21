@@ -4,7 +4,7 @@ export interface Tasks{
     taskName: String;
     taskAddress: Date;
     taskSuburb: String;
-    taskTypes: String;
+    taskType: String;
     taskDate: String;
     taskClass: String;
     taskDescription: String;
