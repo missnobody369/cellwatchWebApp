@@ -12,10 +12,14 @@ export class TaskTypeService {
   }
 
 
+
   //ADD TASK TYPES
   create(type){
     return this.db.list('/taskType/').push(type);
     //var a = this.db.database.ref('/taskType').push().set(type);
+  }
+  getTaskStatus(){
+    return this.db.list('/taskStatus');
   }
 
   //get task 1 x 1

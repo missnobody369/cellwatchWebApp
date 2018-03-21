@@ -15,6 +15,8 @@ export class TaskFormComponent implements OnInit {
   techNames$;
   //list of types
   taskTypes$;
+  //list of status
+  taskStatus$;
   //list of tasks
   tasks={};
   taskId;
@@ -40,6 +42,9 @@ export class TaskFormComponent implements OnInit {
     //dropdown list task types
     this.taskTypes$ = taskTypeService.getTaskTypes();
 
+    this.taskStatus$ = taskTypeService.getTaskStatus();
+
+   
     //get task details and insert inside form&card
     let taskId = this.route.snapshot.paramMap.get('id');
     if (taskId) this.taskService.getTaskInfo(taskId).take(1).subscribe( b => this.tasks = b);

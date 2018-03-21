@@ -5,31 +5,35 @@
       <br>
     <form #t="ngForm" (ngSubmit)="add(t.value)">
       <div class="form-group">
-        <label for="technicianName">Technician</label>
-          <select #eachUserID="ngModel" [(ngModel)]="tasks.eachUserID" name="eachUserID" id="eachUserID"  class="form-control" (change)="selectedChangeHandler($event)">
-            <option value="">--Choose a Technician Name--</option>
-            <option *ngFor="let a of techNames$ | async" [ngValue]="a.$key">
-              {{ a.name }}
+          <label for="taskType">Status</label>
+          <select #taskType="ngModel" [(ngModel)]="tasks.status" name="taskStatus" id="taskStatus" class="form-control">
+            <option value="">--Choose a Status for the Task--</option>
+              <option *ngFor="let e of taskStatus$ | async" [value]="e.status">
+               {{e.status}}
             </option>
           </select>
-        <!-- <div class="alert alert-danger" *ngIf="eachUserID.touched && eachUserID.invalid">
-          Please Choose a Technician...
-        </div> -->
-      </div>
-<!-- 
+      </div>     
       <div class="form-group">
-          <label for="e">TaskName</label>
-          <input #taskName="ngModel" [(ngModel)]="tasks.taskName" name="taskName" id="taskName" type="text" class="form-control" required>
-        </div> -->
-
-      <div class="form-group">
-        <label for="taskStatus">Status</label>
-        <input #taskStatus="ngModel" [(ngModel)]="tasks.taskStatus" name="taskStatus" id="taskStatus" type="text" class="form-control" required>
-        <div class="alert alert-danger" *ngIf="taskStatus.touched && taskStatus.invalid">
-            Status is Required.
-        </div>
+          <label for="taskTechnicianName">Name</label>
+          <select #eachUserID="ngModel" [(ngModel)]="tasks.eachUserID" name="eachUserID" id="eachUserID"  class="form-control" (change)="selectedChangeHandler($event)">
+          <option value="">--Choose a Technician Name--</option>
+          <option *ngFor="let a of techNames$ | async" [ngValue]="a.$key">
+            {{ a.name }}
+          </option>
+      </select>
       </div>
+   
 
+      <!-- example -->
+      <div class="form-group">
+        <label for="taskType">Type</label>
+        <select #taskType="ngModel" [(ngModel)]="tasks.taskType" name="taskType" id="taskType" class="form-control">
+          <option value="">--Choose a Type--</option>
+          <option *ngFor="let d of taskTypes$ | async" [value]="d.type">
+            {{d.type}}
+          </option>
+        </select>
+      </div>
       <div class="form-group">
         <label for="taskName">TaskName</label>
         <input #taskName="ngModel" [(ngModel)]="tasks.taskName" name="taskName" id="taskName" type="text" class="form-control" required>
@@ -51,21 +55,6 @@
         <div class="alert alert-danger" *ngIf="taskSuburb.touched && taskSuburb.invalid">
             Suburb is Required.
         </div>
-      </div>
-
-      <div class="form-group">
-        <label for="taskType">Type</label>
-          <div class="form-group">
-            <select #taskType="ngModel" [(ngModel)]="tasks.taskType" name="taskType" id="taskType" class="form-control">
-              <option value="">--Choose a Task Type--</option>
-              <option *ngFor="let d of taskTypes$ | async" [ngValue]="d.type">
-                {{ d.type }}
-              </option>
-            </select>
-              <!-- <div class="alert alert-danger" *ngIf="eachUserID.touched && eachUserID.invalid">
-                Please Choose a Technician...
-              </div> -->
-          </div>
       </div>
       <div class="form-group">
         <label for="taskStartDate">Start Date</label>
@@ -97,7 +86,10 @@
     <div class="card" style="width: 30rem;">
       <div class="card-body">
         <h4>Assign Tasks</h4>
-        <p class="card-text">Date & Time: {{tasks.taskDate | date:"MM/dd/yy"}}</p>
+        <!-- <p class="card-text">Technician Name: {{tasks.taskTechnicianName}}</p> -->
+        <p class="card-text">ID: {{tasks.eachUserID}}</p>
+        <p class="card-text">Name: {{tasks.taskTechnicianName}}</p>
+        <!-- <p class="card-text">Date & Time: {{tasks.taskDate | date:"MM/dd/yy"}}</p> -->
         <p class="card-text">Status: {{tasks.taskStatus}}</p>
         <p class="card-text">Tasks: {{tasks.taskName}}</p>
         <p class="card-text">Address: {{tasks.taskAddress}}</p>

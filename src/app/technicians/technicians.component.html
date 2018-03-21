@@ -7,7 +7,6 @@
     <img src="assets/logo-technicians.png" alt="logo list of technicians">
   </div>
 </div>
-<br>
 <p>
     <!-- search technicians name -->
     <input 
@@ -20,23 +19,25 @@
     <table class="table">
         <thead>
         <tr>
-                <th>Profile</th>
+                <th>Photo</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contract Date</th>
                 <th>Phone</th>
-                <th></th>
+                <th>Sys Role</th>
+                <th>Details</th>
         </tr>
         </thead>
         <tbody>
             <tr *ngFor="let t of filteredTechnicians | paginate: { itemsPerPage: 5, currentPage: p }">  
             <td><img class="card-img-top profile-img" [src]="t.profileUrl" alt="Card image cap"></td>      
                     <a [routerLink]="['/technicians-tasks', t.$key]">
-                        <td>{{ t.name }}</td>
+                        <td title="Click here to see this technichian's tasks">{{ t.name }}</td>
                     </a>
             <td>{{ t.email }}</td>
             <td>{{ t.expirationDate }}</td>
             <td>{{ t.phone }}</td>
+            <td>{{ t.user_type }}</td>
             <td>
                 <a [routerLink]="['/technicians', t.$key]">Edit</a>
                 <!-- <a [routerLink]="['/technicians-tasks', t.$key]">Tasks</a> -->

@@ -9,5 +9,7 @@ export interface Tasks{
     taskClass: String;
     taskDescription: String;
     zipFileURL: String;
+    taskStatus: String;
+    status: String;
     
 }
