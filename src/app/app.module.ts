@@ -35,6 +35,7 @@ import { TaskDetailComponent} from './task-detail/task-detail.component';
 import { TaskTypeService } from './services/task-type.service';
 import { TypesComponent } from './types/types.component';
 import { TypeFormComponent } from './type-form/type-form.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -52,7 +53,8 @@ import { TypeFormComponent } from './type-form/type-form.component';
     TechniciansTasksComponent,
     TaskDetailComponent,
     TypesComponent,
-    TypeFormComponent
+    TypeFormComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -139,6 +141,14 @@ import { TypeFormComponent } from './type-form/type-form.component';
         component: TechniciansFormComponent,
         canActivate: [AuthGuardService]
       },
+
+      { path: 'signup', 
+        component: SignupComponent,
+        canActivate: [AuthGuardService]
+      },
+
+
+
       { path: '', 
         component: LoginComponent,
         canActivate: [AuthGuardService]
