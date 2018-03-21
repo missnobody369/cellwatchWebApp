@@ -1,3 +1,3 @@
-export interface type {
+export interface types {
     type: string;
 }

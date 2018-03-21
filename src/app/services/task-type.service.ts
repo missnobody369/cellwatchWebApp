@@ -6,14 +6,16 @@ export class TaskTypeService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  create(type){
-       return this.db.list('/taskType/').push(type);
-      // return this.db.database.ref('taskType').push().child("type").set(type);
+  //dropdown list inside add task
+  getTaskTypes(){
+    return this.db.list('/taskType/');
   }
 
-  //view each type in a table
-  getTaskTypes(){
-    return this.db.list('/taskType');
+
+  //ADD TASK TYPES
+  create(type){
+    return this.db.list('/taskType/').push(type);
+    //var a = this.db.database.ref('/taskType').push().set(type);
   }
 
   //get task 1 x 1
@@ -29,6 +31,15 @@ export class TaskTypeService {
   //delete the task
   deleteTaskType(typeId) {
     return this.db.object('/taskType/' + typeId).remove();
+  }
+
+  getTypeById(typeId){
+    return this.db.list('/taskType/', {
+      query: {
+        orderByChild: 'type',
+        equalTo: typeId
+      }
+    });
   }
 
 }
