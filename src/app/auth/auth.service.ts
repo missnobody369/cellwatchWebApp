@@ -10,7 +10,7 @@ export class AuthService {
   //when user login
   public admin: Observable<firebase.User>
 
-  constructor(private afAuth: AngularFireAuth) { 
+  constructor(private afAuth: AngularFireAuth) {
     this.admin = afAuth.authState;
   }
 
@@ -20,6 +20,14 @@ export class AuthService {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
     );
   }
+
+  //login using email and password
+  signup(email, password): Observable<any>{
+    return Observable.fromPromise(
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    );
+  }
+
 
   //function to authenticate to tell user login or not
   isAuthenticated(): Observable<boolean>{
