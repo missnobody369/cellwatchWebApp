@@ -3,14 +3,14 @@
     <button class="btn btn-warning" [routerLink]="['/technicians']">Back</button>
       <form #f="ngForm" (ngSubmit)="save(f.value)">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name">Name*</label>
           <input #name="ngModel" [(ngModel)]="technicians.name" name="name" id="name" type="text" class="form-control" required>
           <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
             Name is required.
           </div>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">Email*</label>
           <input #email="ngModel" [(ngModel)]="technicians.email" name="email" id="email" type="text" class="form-control" required>
           <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
             Email is required.
@@ -24,6 +24,13 @@
             </div>
         </div> -->
         <div class="form-group">
+          <label for="expiration">Contract Expiration</label>
+          <input #expiration="ngModel" [(ngModel)]="technicians.expirationDate" name="expiration " id="expiration" type="date" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="expiration.touched && expiration.invalid">
+            Contract expiration date is required.
+          </div>
+        </div>
+        <div class="form-group">
           <label for="phone">Phone</label>
           <input #phone="ngModel" [(ngModel)]="technicians.phone" name="phone" id="phone" type="text" class="form-control" required>
           <div class="alert alert-danger" *ngIf="phone.touched && phone.invalid">
@@ -31,12 +38,13 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="expiration">Contract Expiration</label>
-          <input #expiration="ngModel" [(ngModel)]="technicians.expirationDate" name="expiration " id="expiration" type="date" class="form-control" required>
-          <div class="alert alert-danger" *ngIf="expiration.touched && expiration.invalid">
-            Expiration is required.
+          <label for="sysrole">Sys Role</label>
+          <input #sysrole="ngModel" [(ngModel)]="technicians.user_type" name="sysrole" id="sysrole" type="text" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="phone.touched && phone.invalid">
+            Sys Role is required.
           </div>
         </div>
+        
         <!-- <div class="form-group">
           <label for="hobby">Hobby</label>
           <input #hobby="ngModel" [(ngModel)]="technicians.hobby" name="hobby" id="hobby" type="text" class="form-control" required>
@@ -63,8 +71,9 @@
               <h4>Technicians</h4>
               <h5 class="card-title">Name: {{ technicians.name }}</h5>
               <p class="card-text">Email: {{ technicians.email }}</p>
-              <p class="card-text">Phone: {{ technicians.phone }}</p>
               <p class="card-text">Contract Expiration: {{ technicians.expirationDate | date:"dd/MM/yy hh:mm a"}}</p>
+              <p class="card-text">Phone: {{ technicians.phone }}</p>
+              <p class="card-text">Sys Role: {{ technicians.user_type }}</p>
               <!-- <p class="card-text">Hobby: {{ technicians.hobby }}</p>
               <p class="card-text">Bio: {{ technicians.bio }}</p> -->
             </div>

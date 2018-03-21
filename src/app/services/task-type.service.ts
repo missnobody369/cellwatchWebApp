@@ -16,6 +16,11 @@ export class TaskTypeService {
     return this.db.list('/taskType');
   }
 
+  getTaskStatus(){
+    return this.db.list('/taskStatus');
+  }
+
+
   //view all task types
   getAllTaskTypes() {
     return this.db.list('/taskType/');
