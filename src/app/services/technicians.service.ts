@@ -6,12 +6,12 @@ import { Technicians } from '../models/technicians';
 
 @Injectable()
 export class TechniciansService {
-
+techId;
   constructor(private db: AngularFireDatabase, private af: AngularFireAuth) { }
 
-  //create technicians list and push inside child in firebase
-  create(technicians){
-    return this.db.list('/users').push(technicians);
+  //create technicians with authentication 
+  create(techId,technicians){
+    return this.db.database.ref('/users').child(techId).set(technicians);
   }
   
   //get/view all the data from database:table
@@ -30,8 +30,8 @@ export class TechniciansService {
   }
 
   //delete technicians locate using id
-  delete(techniciansId){
-    return this.db.object('/users/' + techniciansId).remove();
+  delete(techId){
+    return this.db.object('/users/' + techId).remove();
   }
 
 

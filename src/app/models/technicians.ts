@@ -8,4 +8,5 @@ export interface Technicians{
     hobby: String;
     bio: String;
     profileUrl: String;
+    id: String;
 }
