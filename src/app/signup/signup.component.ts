@@ -4,6 +4,9 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
+import { TechniciansService } from '../services/technicians.service';
+
 
 
 
@@ -15,10 +18,12 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   public form: FormGroup;
-
+  id;
   constructor (
-    private formBuilder: FormBuilder;
-    private authService: AuthService;
+    private formBuilder: FormBuilder,
+    private db: AngularFireDatabase,
+    private techniciansService: TechniciansService,
+    private authService: AuthService,
     private router: Router
   ) {
     this.form = this.formBuilder.group({
@@ -29,5 +34,18 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  signup(){
+    const inputValue = this.form.value;
+    this.authService.signup(inputValue.signup_email, inputValue.signup_password)
+    .subscribe(
+      success => this.router.navigate(['/technicians/new']),
+      error => alert(error));
+  }
+
+
+ 
+
+  
 
 }

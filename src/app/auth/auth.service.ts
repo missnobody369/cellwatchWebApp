@@ -21,10 +21,10 @@ export class AuthService {
     );
   }
 
-  //login using email and password
+  //Signup using email and password
   signup(email, password): Observable<any>{
     return Observable.fromPromise(
-      this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     );
   }
 
