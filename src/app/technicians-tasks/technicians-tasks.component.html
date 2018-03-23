@@ -39,6 +39,7 @@
         <!-- <th>Suburb</th> -->
         <th>Class</th>
         <th>Type</th>
+        <th>Technician</th>
         <!-- <th>Date</th> -->
         <!-- <th>Description</th> -->
         <th>Start Date</th>
@@ -51,14 +52,13 @@
       <tr *ngFor="let taskInfo of tasks$ | async | paginate: { itemsPerPage: 5, currentPage: p }">
         <!-- <td>{{taskInfo.eachUserID}}</td> -->
         <td>{{taskInfo.taskStatus}}</td>
-          <a [routerLink]="['/task-detail', taskInfo.$key]">
-            <td>{{taskInfo.taskName}}</td>
-          </a>
+          <a [routerLink]="['/task-detail', taskInfo.$key]"><td>{{taskInfo.taskName}}</td></a>
         <td>{{taskInfo.taskAddress}}</td>
         <!-- <td>{{taskInfo.taskComment}}</td> -->
         <!-- <td>{{taskInfo.taskSuburb}}</td> -->
         <td>{{taskInfo.taskClass}}</td>
         <td>{{taskInfo.taskType}}</td>
+        <td>{{taskInfo.taskTechnicianName}}</td>
         <!-- <td>{{taskInfo.taskDate | date:"dd/MM/yy hh:mm a"}}</td> -->
         <!-- <td>{{taskInfo.taskDescription}}</td> -->
         <td>{{taskInfo.taskStartDate}}</td>

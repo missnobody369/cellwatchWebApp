@@ -26,31 +26,41 @@
         <thead>
             <tr>
                 <!-- <th>UID</th> -->
-                <th>Task Name</th>
+                <th>Status</th>
+                <th>Task</th>
                 <th>Address</th>
                 <!-- <th>Suburb</th> -->
                 <th>Class</th>
                 <th>Type</th>
-                <!-- <th>Technician</th> -->
-                <th>Date</th>
-                <th>Description</th>
-                <th></th>
+                <th>Technician</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <!-- <th>Description</th> -->
+                <th>Zip</th>
+                
               </tr>
         </thead>
         <tbody>
             <tr *ngFor="let b of filteredTechnicians | paginate: { itemsPerPage: 5, currentPage: p }">
                 <!-- <td>{{ b.eachUserID }}</td> -->
-                <td>{{ b.taskName }}</td>
+                <td>{{b.taskStatus}}</td>
+                <a [routerLink]="['/task-detail', b.$key]"><td>{{ b.taskName }}</td></a>
                 <td>{{ b.taskAddress }}</td>
                 <!-- <td>{{ b.taskSuburb }}</td> -->
                 <td>{{ b.taskClass }}</td>
                 <td>{{ b.taskType }}</td>
-                <!-- <td>{{ b.taskTechnicianName}}</td> -->
-                <td>{{ b.taskDate | date:"dd/MM/yy hh:mm a" }}</td>
-                <td>{{ b.taskDescription }}</td>
-                <td>
+                <td>{{ b.taskTechnicianName}}</td>
+                <!-- <td>{{ b.taskDate | date:"dd/MM/yy hh:mm a" }}</td> -->
+                <td>{{b.taskStartDate}}</td>
+                <td>{{b.taskEndDate}}</td>
+        
+                <!-- <td>{{ b.taskDescription }}</td> -->
+                <!-- <td>
                   <a [routerLink]="['/task-detail', b.$key]">View</a>
-                </td>
+                </td> -->
+                <td>
+                  <a href="{{ b.zipFileUrl }}">download</a>
+              </td>      
               </tr>
         </tbody>
     </table>
