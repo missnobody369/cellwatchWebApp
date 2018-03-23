@@ -37,7 +37,9 @@ export class TechniciansFormComponent{
   save(technicians){
     //updates the product
     if 
-    (this.techId.uid) this.techniciansService.update( this.techId, technicians);
+    (this.techId.uid) this.techniciansService.update( 
+      this.techId, technicians
+    );
     else 
     this.techniciansService.create(this.techId,technicians);
     this.router.navigate(['/technicians']);

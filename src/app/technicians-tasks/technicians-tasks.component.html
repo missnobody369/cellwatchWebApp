@@ -24,38 +24,27 @@
       </div>
     </div>
 </div>
-
 <br>
-
 <div class="table-responsive-sm">
   <table class="table">
     <thead>
       <tr>
-        <!-- <th>Task ID</th> -->
         <th>Status</th>
         <th>Task</th>
         <th>Address</th>
-        <!-- <th>Comments</th> -->
-        <!-- <th>Suburb</th> -->
         <th>Class</th>
         <th>Type</th>
         <th>Technician</th>
-        <!-- <th>Date</th> -->
-        <!-- <th>Description</th> -->
         <th>Start Date</th>
         <th>End Date</th>
         <th>Zip</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let taskInfo of tasks$ | async | paginate: { itemsPerPage: 5, currentPage: p }">
-        <!-- <td>{{taskInfo.eachUserID}}</td> -->
         <td>{{taskInfo.taskStatus}}</td>
           <a [routerLink]="['/task-detail', taskInfo.$key]"><td>{{taskInfo.taskName}}</td></a>
         <td>{{taskInfo.taskAddress}}</td>
-        <!-- <td>{{taskInfo.taskComment}}</td> -->
-        <!-- <td>{{taskInfo.taskSuburb}}</td> -->
         <td>{{taskInfo.taskClass}}</td>
         <td>{{taskInfo.taskType}}</td>
         <td>{{taskInfo.taskTechnicianName}}</td>
@@ -63,9 +52,7 @@
         <!-- <td>{{taskInfo.taskDescription}}</td> -->
         <td>{{taskInfo.taskStartDate}}</td>
         <td>{{taskInfo.taskEndDate}}</td>
-        <td>
-            <a href="{{ taskInfo.zipFileUrl }}">download</a>
-        </td>
+         <a href="{{ taskInfo.zipFileUrl }}"><td>download</td></a>
       </tr>
     </tbody>
   </table>

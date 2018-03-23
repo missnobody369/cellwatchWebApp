@@ -18,20 +18,22 @@
         </div>
 
          <div class="form-group">
-            <label for="id">id</label>
-            <input #id="ngModel" [(ngModel)]="technicians.id" id="id" type="text" class="form-control" required>
-            <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
-              password is required.
-            </div>
+            <input #id="ngModel" [(ngModel)]="technicians.id" id="id" type="hidden" class="form-control">
         </div> 
+        <div class="form-group">
+            <label for="online">Online</label>
+            <input #online="ngModel" [(ngModel)]="technicians.online" name="online" id="online" type="checkbox" class="form-control">
+          </div>
+  
 
         <div class="form-group">
           <label for="expiration">Contract Expiration</label>
-          <input #expiration="ngModel" [(ngModel)]="technicians.expirationDate" name="expiration " id="expiration" type="date" class="form-control" required>
+          <input #expiration="ngModel" [(ngModel)]="technicians.expirationDate" name="expiration " id="expiration" type="datetime" class="form-control" required>
           <div class="alert alert-danger" *ngIf="expiration.touched && expiration.invalid">
             Contract expiration date is required.
           </div>
         </div>
+    
         <div class="form-group">
           <label for="phone">Phone</label>
           <input #phone="ngModel" [(ngModel)]="technicians.phone" name="phone" id="phone" type="text" class="form-control" required>
@@ -40,27 +42,24 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="sysrole">Sys Role</label>
-          <input #sysrole="ngModel" [(ngModel)]="technicians.user_type" name="sysrole" id="sysrole" type="text" class="form-control" required>
+          <label for="userType">Sys Role</label>
+          <input #userType="ngModel" [(ngModel)]="technicians.userType" name="userType" id="userType" type="text" class="form-control" required>
           <div class="alert alert-danger" *ngIf="phone.touched && phone.invalid">
             Sys Role is required.
           </div>
         </div>
+
+        <div class="form-group">
+            <label for="profileUrl">Profile URL</label>
+            <input #userType="ngModel" [(ngModel)]="technicians.profileUrl" name="profileUrl" id="profileUrl" type="url" class="form-control">
+            <!-- <div class="alert alert-danger" *ngIf="profileUrl.touched && profileUrl.invalid">
+              Profile photo is required.
+            </div> -->
+          </div>
         
-        <!-- <div class="form-group">
-          <label for="hobby">Hobby</label>
-          <input #hobby="ngModel" [(ngModel)]="technicians.hobby" name="hobby" id="hobby" type="text" class="form-control" required>
-          <div class="alert alert-danger" *ngIf="hobby.touched && hobby.invalid">
-            Hobby is required.
-          </div>
-        </div> -->
-        <!-- <div class="form-group">
-          <label for="bio">Bio</label>
-          <input #bio="ngModel" [(ngModel)]="technicians.bio" name="bio" id="bio" type="text" class="form-control" required>
-          <div class="alert alert-danger" *ngIf="bio.touched && bio.invalid">
-            Bio is required.
-          </div>
-        </div> -->
+
+  
+
           <button class="btn btn-primary">Save</button>
           <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
       </form> 
@@ -75,10 +74,19 @@
               <p class="card-text">Email: {{ technicians.email }}</p>
               <p class="card-text">Contract Expiration: {{ technicians.expirationDate | date:"dd/MM/yy hh:mm a"}}</p>
               <p class="card-text">Phone: {{ technicians.phone }}</p>
-              <p class="card-text">Sys Role: {{ technicians.user_type }}</p>
+              <p class="card-text">Sys Role: {{ technicians.userType }}</p>
+              <p class="card-text">Online: {{ technicians.online }}</p>
               <!-- <p class="card-text">Hobby: {{ technicians.hobby }}</p>
               <p class="card-text">Bio: {{ technicians.bio }}</p> -->
             </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                      <img class="card-img-top technician-img" [src]="technicians.profileUrl" alt="technicians image">
+                  </div>
+                </div>
+              </div>
         </div>
   </div>
 

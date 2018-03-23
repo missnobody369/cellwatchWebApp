@@ -44,8 +44,8 @@ input[type=text] {
     font-weight: bold;
     outline: 0;
     margin-bottom: 20px;
-    padding-left: 0px;
-    color: #ECF0F5;
+    padding-left: 5px;
+    color: rgb(0, 0, 0);
 }
 
 input[type=password] {
@@ -56,9 +56,9 @@ input[type=password] {
     border-radius: 0px;
     font-weight: bold;
     outline: 0;
-    padding-left: 0px;
+    padding-left: 5px;
     margin-bottom: 20px;
-    color: #ECF0F5;
+    color: rgb(0, 0, 0);
 }
 
 .form-group {

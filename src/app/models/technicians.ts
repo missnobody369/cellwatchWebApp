@@ -9,4 +9,6 @@ export interface Technicians{
     bio: String;
     profileUrl: String;
     id: String;
+    userType: String;
+    online: Boolean;
 }
