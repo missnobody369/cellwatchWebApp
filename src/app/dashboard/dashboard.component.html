@@ -1,3 +1,4 @@
+<!-- JB added 20-02-2018 Map Tracking-->
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [styles]='[
 {
   "elementType": "geometry",
@@ -216,18 +217,17 @@
 
 <!-- END OF GOOGLE MAP STYLING -->
 
-<div *ngFor="let m of markers$ | async">
-  <agm-marker [latitude]="m.latitude" [longitude]="m.longitude" [label]="m.technicianName" id="techName">
-    
-    <agm-info-window>
-      <h3>
-        <strong>{{m.technicianName}}</strong>
-      </h3>
-      <p> <strong>Address: </strong> {{ m.address }}</p>
-      <p> <strong>Date & Time: {{m.timeStamp | date:"dd/MM/yy hh:mm a" }}</strong></p>
-    </agm-info-window>
-  </agm-marker>
-</div>  
+  <div *ngFor="let m of markers$ | async">
+    <agm-marker [latitude]="m.latitude" [longitude]="m.longitude" [label]="m.technicianName" id="techName">
+      <agm-info-window>
+        <h3>
+            <strong>{{m.technicianName}}</strong>
+        </h3>
+        <p> <strong>Address: </strong> {{ m.address }}</p>
+        <h6> <strong>Date & Time: {{m.timeStamp | date:"dd/MM/yy hh:mm a" }}</strong></h6>
+      </agm-info-window>
+    </agm-marker>
+  </div>
 </agm-map>
 
  <section id="details">
