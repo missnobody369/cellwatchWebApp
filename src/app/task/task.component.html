@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <br>
 <br> -->
 
@@ -15,13 +15,13 @@
 <!-- Search -->
 <p>
   <!-- Handle key of event -->
-  <input 
+  <input
   #queryTasks
   (keyup)="filter(queryTasks.value)"
   type="text" class="form-control" placeholder="Search Task...">
 </p>
 
-<div class="table-responsive-sm">          
+<div class="table-responsive-sm">
     <table class="table">
         <thead>
             <tr>
@@ -37,7 +37,7 @@
                 <th>End Date</th>
                 <!-- <th>Description</th> -->
                 <th>Zip</th>
-                
+
               </tr>
         </thead>
         <tbody>
@@ -53,14 +53,14 @@
                 <!-- <td>{{ b.taskDate | date:"dd/MM/yy hh:mm a" }}</td> -->
                 <td>{{b.taskStartDate}}</td>
                 <td>{{b.taskEndDate}}</td>
-        
+
                 <!-- <td>{{ b.taskDescription }}</td> -->
                 <!-- <td>
                   <a [routerLink]="['/task-detail', b.$key]">View</a>
                 </td> -->
                 <td>
                   <a href="{{ b.zipFileUrl }}">download</a>
-              </td>      
+              </td>
               </tr>
         </tbody>
     </table>

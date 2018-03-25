@@ -11,11 +11,14 @@ export class TypesComponent implements OnInit {
   taskCategory$;
 
   constructor(private taskTypeService: TaskTypeService) {
-     
+
+  //  this.taskCategory$ = this.taskTypeService.getTaskTypes();
+
     this.taskCategory$ = this.taskTypeService.getTaskTypes();
   }
 
   ngOnInit() {
   }
+
 
 }

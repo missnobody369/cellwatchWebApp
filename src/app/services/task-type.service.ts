@@ -8,16 +8,14 @@ export class TaskTypeService {
 
   //dropdown list inside add task
   getTaskTypes(){
-    return this.db.list('/taskType/');
+    return this.db.list('/taskType');
   }
-
-
 
   //ADD TASK TYPES
   create(type){
-    return this.db.list('/taskType/').push(type);
-    //var a = this.db.database.ref('/taskType').push().set(type);
+  return this.db.database.ref('/taskType').push(type)
   }
+  
   getTaskStatus(){
     return this.db.list('/taskStatus');
   }
@@ -28,7 +26,7 @@ export class TaskTypeService {
   }
 
   //update the task type
-  updateType(typeId, type) {
+  updateType(typeId,type) {
     return this.db.object('/taskType/' +typeId).update(type);
   }
 

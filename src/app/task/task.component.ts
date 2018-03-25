@@ -15,7 +15,7 @@ export class TaskComponent implements OnInit, OnDestroy {
   tasks: Tasks[];
   filteredTechnicians: any[];
   subscription: Subscription;
-
+  
   constructor(private taskService: TaskService, private route: ActivatedRoute) {
     this.subscription = this.taskService.getAllTask()
     .subscribe(tasks => this.filteredTechnicians = this.tasks = tasks);
@@ -25,16 +25,17 @@ export class TaskComponent implements OnInit, OnDestroy {
     // querying logic
     // console.log(queryTasks);
     this.filteredTechnicians =(queryTasks) ?
-      // this.tasks.filter(s => s.taskTechicianName.toLowerCase().includes(queryTasks.toLowerCase())) : 
+      // this.tasks.filter(s => s.taskTechicianName.toLowerCase().includes(queryTasks.toLowerCase())) :
       // this.tasks;
-      this.tasks.filter(s => s.taskName.toLowerCase().includes(queryTasks.toLowerCase())) : 
+      this.tasks.filter(s => s.taskName.toLowerCase().includes(queryTasks.toLowerCase())) :
       this.tasks;
   }
-  
+
+
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
-  
+
   ngOnInit() {
   }
 

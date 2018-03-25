@@ -9,6 +9,7 @@
             Name is required.
           </div>
         </div>
+
         <div class="form-group">
           <label for="email">Email*</label>
           <input #email="ngModel" [(ngModel)]="technicians.email" name="email" id="email" type="text" class="form-control" required>
@@ -19,12 +20,12 @@
 
          <div class="form-group">
             <input #id="ngModel" [(ngModel)]="technicians.id" id="id" type="hidden" class="form-control">
-        </div> 
+        </div>
         <div class="form-group">
             <label for="online">Online</label>
             <input #online="ngModel" [(ngModel)]="technicians.online" name="online" id="online" type="checkbox" class="form-control">
           </div>
-  
+
 
         <div class="form-group">
           <label for="expiration">Contract Expiration</label>
@@ -33,7 +34,7 @@
             Contract expiration date is required.
           </div>
         </div>
-    
+
         <div class="form-group">
           <label for="phone">Phone</label>
           <input #phone="ngModel" [(ngModel)]="technicians.phone" name="phone" id="phone" type="text" class="form-control" required>
@@ -56,13 +57,13 @@
               Profile photo is required.
             </div> -->
           </div>
-        
 
-  
+
+
 
           <button class="btn btn-primary">Save</button>
           <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
-      </form> 
+      </form>
 </div>
 
   <div class="col-md-6">
@@ -91,4 +92,3 @@
   </div>
 
 </div>
-
