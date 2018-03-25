@@ -12,7 +12,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CellwatchNavbarComponent {
 
-  public isLoggedIn;
+  isLoggedIn;
+  isCollapsed = true;
   admin$: Observable<firebase.User>;
   
 
