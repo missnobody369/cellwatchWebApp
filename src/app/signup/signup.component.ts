@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
       signup_email: ['', Validators.required],
       signup_password: ['', Validators.required],
       signup_confirm_password: ['', Validators.required]
-      
+
     });
   }
 
@@ -46,8 +46,8 @@ export class SignupComponent implements OnInit {
   }
 
 
- 
 
-  
+
+
 
 }
