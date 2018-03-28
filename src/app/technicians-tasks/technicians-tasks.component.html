@@ -4,25 +4,23 @@
 <br>
 
 <div class="row">
-    <div class="col-sm-6">
+
+     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
             <h4>Technicians</h4>
             <p class="card-text">Name: {{ technicians.name }}</p>
-            <p class="card-text">Email: {{ technicians.email }}</p>
-            <p class="card-text">Expiration: {{ technicians.expirationDate }}</p>
-            <p class="card-text">Phone: {{ technicians.phone }}</p>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-6">
+   <!-- <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
             <img class="card-img-top technician-img" [src]="technicians.profileUrl" alt="technicians image">
         </div>
       </div>
-    </div>
+    </div> -->
 </div>
 <br>
 <div class="table-responsive-sm">
@@ -41,7 +39,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let taskInfo of tasks$ | async | paginate: { itemsPerPage: 5, currentPage: p }">
+      <tr *ngFor="let taskInfo of tasks$ | async | paginate: { itemsPerPage: 10, currentPage: p }">
         <td>{{taskInfo.taskStatus}}</td>
           <a [routerLink]="['/task-detail', taskInfo.$key]"><td>{{taskInfo.taskName}}</td></a>
         <td>{{taskInfo.taskAddress}}</td>
