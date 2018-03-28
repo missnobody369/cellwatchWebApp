@@ -41,7 +41,7 @@
               </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let b of filteredTechnicians | paginate: { itemsPerPage: 5, currentPage: p }">
+            <tr *ngFor="let b of filteredTechnicians | paginate: { itemsPerPage: 10, currentPage: p }">
                 <!-- <td>{{ b.eachUserID }}</td> -->
                 <td>{{b.taskStatus}}</td>
                 <a [routerLink]="['/task-detail', b.$key]"><td>{{ b.taskName }}</td></a>

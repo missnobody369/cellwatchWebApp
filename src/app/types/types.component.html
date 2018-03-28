@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of taskCategory$ | async | paginate: { itemsPerPage: 5, currentPage: p }">
+            <tr *ngFor="let p of taskCategory$ | async | paginate: { itemsPerPage: 10, currentPage: p }">
                 <td>{{ p.type }}</td>
                 <td><a [routerLink]="['/types', p.$key]">Edit</a></td>
             </tr>
